@@ -1,0 +1,578 @@
+/**
+ * Lenny Food Delivery - Stili per il Modal Dettagli Ristorante
+ * Questo file contiene tutti gli stili specifici per il modal dei dettagli ristorante
+ */
+
+/* Stili base del modal */
+#restaurantDetailsModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Modifica dell'overlay del modale per renderlo meno scuro */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+#restaurantDetailsModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#restaurantDetailsModal .modal-title-container {
+    z-index: 1;
+    color: #fff;
+}
+
+#restaurantDetailsModal .modal-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Stili per i tab */
+#restaurantDetailsModal .custom-tabs {
+    border-bottom: none;
+    background-color: #f9fafb;
+    padding: 0.5rem 1rem 0;
+}
+
+#restaurantDetailsModal .custom-tabs .nav-link {
+    border: none;
+    color: #64748b;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#restaurantDetailsModal .custom-tabs .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#restaurantDetailsModal .custom-tabs .nav-link.active {
+    color: #ff5a5f;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+#restaurantDetailsModal .custom-tabs .nav-link.active:after {
+    transform: scaleX(1);
+}
+
+#restaurantDetailsModal .custom-tabs .nav-link:hover:not(.active) {
+    color: #ff5a5f;
+}
+
+/* Profilo ristorante */
+#restaurantDetailsModal .profile-card {
+    overflow: hidden;
+}
+
+#restaurantDetailsModal .profile-banner {
+    height: 80px;
+    background: linear-gradient(90deg, rgba(255,90,95,0.8) 0%, rgba(255,143,107,0.8) 100%);
+    background-size: cover;
+}
+
+#restaurantDetailsModal .profile-image-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+}
+
+#restaurantDetailsModal .profile-image-wrapper {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+#restaurantDetailsModal .restaurant-avatar {
+    color: #ff5a5f;
+}
+
+/* Rating styles */
+#restaurantDetailsModal .rating-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD166, #FFA500);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(255, 165, 0, 0.2);
+}
+
+#restaurantDetailsModal .rating-stars {
+    font-size: 1rem;
+}
+
+/* Stili per i badge di stato */
+#restaurantDetailsModal .status-badge {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#restaurantDetailsModal .status-active {
+    background-color: rgba(0, 214, 143, 0.1);
+    color: #00d68f;
+}
+
+/* Card hover effect */
+#restaurantDetailsModal .shadow-hover {
+    transition: all 0.3s ease;
+}
+
+#restaurantDetailsModal .shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Icone nei titoli */
+#restaurantDetailsModal .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#restaurantDetailsModal .bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#restaurantDetailsModal .bg-info-light {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#restaurantDetailsModal .bg-warning-light {
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+#restaurantDetailsModal .bg-success-light {
+    background-color: rgba(0, 214, 143, 0.1);
+}
+
+#restaurantDetailsModal .bg-secondary-light {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+#restaurantDetailsModal .driver-text-primary {
+    color: #ff5a5f !important;
+}
+
+#restaurantDetailsModal .driver-text-info {
+    color: #36D1DC !important;
+}
+
+#restaurantDetailsModal .driver-text-warning {
+    color: #FFA500 !important;
+}
+
+#restaurantDetailsModal .driver-text-success {
+    color: #00d68f !important;
+}
+
+#restaurantDetailsModal .driver-text-secondary {
+    color: #6c757d !important;
+}
+
+#restaurantDetailsModal .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+#restaurantDetailsModal .info-item {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+#restaurantDetailsModal .detail-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+#restaurantDetailsModal .detail-value {
+    font-weight: 500;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+/* Statistiche */
+#restaurantDetailsModal .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+#restaurantDetailsModal .stat-item {
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#restaurantDetailsModal .stat-details {
+    text-align: center;
+}
+
+#restaurantDetailsModal .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+#restaurantDetailsModal .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Stile per i pulsanti */
+#restaurantDetailsModal .driver-modal-button {
+    transition: all 0.3s ease;
+}
+
+#restaurantDetailsModal .btn-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    border: none;
+}
+
+#restaurantDetailsModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 90, 95, 0.3);
+}
+
+#restaurantDetailsModal .btn-success {
+    background: linear-gradient(135deg, #00d68f 0%, #00a2c0 100%);
+    border: none;
+}
+
+#restaurantDetailsModal .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 214, 143, 0.3);
+}
+
+#restaurantDetailsModal .btn-light {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #64748b;
+}
+
+#restaurantDetailsModal .btn-light:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+/* Stile per i prodotti */
+#restaurantDetailsModal .top-product-rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    color:rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Custom table styles */
+#restaurantDetailsModal .custom-table-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#restaurantDetailsModal .custom-table {
+    margin-bottom: 0;
+}
+
+#restaurantDetailsModal .custom-table thead th {
+    background-color: #f9fafb;
+    color: #64748b;
+    font-weight: 600;
+    border: none;
+}
+
+#restaurantDetailsModal .custom-table tbody td {
+    vertical-align: middle;
+    border-color: rgba(0,0,0,0.05);
+}
+
+/* Badges */
+#restaurantDetailsModal .badge-pill {
+    padding: 0.35em 0.8em;
+    border-radius: 50rem;
+    font-weight: 600;
+    font-size: 0.75em;
+}
+
+#restaurantDetailsModal .badge-pill.bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+/* Sfondi soft per le icone */
+#restaurantDetailsModal .bg-primary-soft {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#restaurantDetailsModal .bg-info-soft {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#restaurantDetailsModal .bg-success-soft {
+    background-color: rgba(0, 214, 143, 0.1);
+}
+
+#restaurantDetailsModal .bg-warning-soft {
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+#restaurantDetailsModal .bg-secondary-soft {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+/* Bottoni di contatto */
+#restaurantDetailsModal .contact-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#restaurantDetailsModal .driver-btn-action {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: inherit;
+}
+
+#restaurantDetailsModal .driver-btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+#restaurantDetailsModal .driver-btn-primary-soft {
+    background-color: rgba(255, 90, 95, 0.15);
+    color: #ff5a5f;
+}
+
+#restaurantDetailsModal .driver-btn-info-soft {
+    background-color: rgba(54, 209, 220, 0.15);
+    color: #36D1DC;
+}
+
+#restaurantDetailsModal .driver-btn-success-soft {
+    background-color: rgba(0, 214, 143, 0.15);
+    color: #00d68f;
+}
+
+@media (max-width: 768px) {
+    #restaurantDetailsModal .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #restaurantDetailsModal .custom-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    #restaurantDetailsModal .modal-footer {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    
+    #restaurantDetailsModal .modal-footer button {
+        width: 100%;
+    }
+    
+    #restaurantDetailsModal .stats-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Stili per le metriche principali */
+#restaurantDetailsModal .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#restaurantDetailsModal .stat-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+#restaurantDetailsModal .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#restaurantDetailsModal .stat-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="white"><circle cx="3" cy="3" r="1"/><circle cx="13" cy="13" r="1"/></g></svg>');
+    z-index: 0;
+}
+
+#restaurantDetailsModal .stat-card-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    color: white;
+}
+
+#restaurantDetailsModal .stat-card-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: white;
+}
+
+#restaurantDetailsModal .stat-card-accent-1 {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+    color: white;
+}
+
+#restaurantDetailsModal .stat-card-accent-2 {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff6a00 100%);
+    color: white;
+}
+
+#restaurantDetailsModal .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+#restaurantDetailsModal .stat-content {
+    flex: 1;
+    z-index: 1;
+}
+
+#restaurantDetailsModal .stat-title {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+}
+
+#restaurantDetailsModal .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    line-height: 1;
+}
+
+#restaurantDetailsModal .stat-change {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+#restaurantDetailsModal .stat-change i {
+    font-size: 0.7rem;
+    margin-right: 0.25rem;
+}
+
+#restaurantDetailsModal .stat-change.positive {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#restaurantDetailsModal .stat-change.negative {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animazione float */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+#restaurantDetailsModal .animate-float {
+    animation: float 5s ease-in-out infinite;
+}
+
+#restaurantDetailsModal .animate-float:nth-child(1) { animation-delay: 0s; }
+#restaurantDetailsModal .animate-float:nth-child(2) { animation-delay: 1s; }
+#restaurantDetailsModal .animate-float:nth-child(3) { animation-delay: 2s; }
+#restaurantDetailsModal .animate-float:nth-child(4) { animation-delay: 3s; }
+
+/* Stili responsive per le card */
+@media (max-width: 768px) {
+    #restaurantDetailsModal .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    #restaurantDetailsModal .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

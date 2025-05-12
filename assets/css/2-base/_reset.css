@@ -1,0 +1,78 @@
+/**
+ * Lenny Food Delivery - Reset CSS
+ * Reset e normalizzazione degli stili di base
+ */
+
+/* Reset e base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    color: var(--color-grey-800);
+    background-color: var(--color-bg-body);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* Scrollbar personalizzata */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-grey-200);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-grey-400);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-grey-500);
+}
+
+/* Fix elementi ridimensionabili */
+textarea {
+    resize: vertical;
+}
+
+/* Fix per immagini responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Lista senza stili */
+ul, ol {
+    list-style: none;
+}
+
+/* Disabilita l'outline predefinito dei browser per accessibilità */
+:focus {
+    outline: 0;
+}
+
+/* Styling per testo selezionato */
+::selection {
+    background-color: var(--color-primary-very-light);
+    color: var(--color-primary);
+}

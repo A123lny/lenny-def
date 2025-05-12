@@ -1,0 +1,476 @@
+/**
+ * Lenny Food Delivery - Driver View Modal
+ * Stili specifici per il modal di visualizzazione dettagli driver
+ */
+
+/* Stili base del modal */
+#viewDriverModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Modifica dell'overlay del modale per renderlo meno scuro */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Opacità ridotta da 0.8+ a 0.5 */
+}
+
+.modal-backdrop.show {
+    opacity: 0.5; /* Opacità ridotta */
+}
+
+#viewDriverModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#viewDriverModal .modal-title-container {
+    z-index: 1;
+    color: #fff;
+}
+
+#viewDriverModal .modal-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Stili per i tab */
+#viewDriverModal .custom-tabs {
+    border-bottom: none;
+    background-color: #f9fafb;
+    padding: 0.5rem 1rem 0;
+}
+
+#viewDriverModal .custom-tabs .nav-link {
+    border: none;
+    color: #64748b;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#viewDriverModal .custom-tabs .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#viewDriverModal .custom-tabs .nav-link.active {
+    color: #ff5a5f;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+#viewDriverModal .custom-tabs .nav-link.active:after {
+    transform: scaleX(1);
+}
+
+#viewDriverModal .custom-tabs .nav-link:hover:not(.active) {
+    color: #ff5a5f;
+}
+
+/* Profilo utente */
+#viewDriverModal .profile-card {
+    overflow: hidden;
+}
+
+#viewDriverModal .profile-banner {
+    height: 80px;
+    background: linear-gradient(90deg, rgba(255,90,95,0.8) 0%, rgba(255,143,107,0.8) 100%);
+    background-size: cover;
+}
+
+#viewDriverModal .profile-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+}
+
+#viewDriverModal .profile-image-wrapper {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#viewDriverModal .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#viewDriverModal .upload-overlay {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #ff5a5f;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#viewDriverModal .upload-overlay:hover {
+    background-color: #ff8f6b;
+    transform: scale(1.1);
+}
+
+#viewDriverModal .rating-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD166, #FFA500);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(255, 165, 0, 0.2);
+}
+
+#viewDriverModal .rating-stars {
+    font-size: 1.2rem;
+}
+
+/* Stili per i badge di stato */
+#viewDriverModal .status-badge {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#viewDriverModal .status-active {
+    background-color: rgba(0, 214, 143, 0.1);
+    color: #00d68f;
+}
+
+/* Stile per i pulsanti */
+#viewDriverModal .driver-modal-button {
+    transition: all 0.3s ease;
+}
+
+#viewDriverModal .btn-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    border: none;
+}
+
+#viewDriverModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 90, 95, 0.3);
+}
+
+#viewDriverModal .btn-info {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+    border: none;
+}
+
+#viewDriverModal .btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(54, 209, 220, 0.3);
+}
+
+#viewDriverModal .btn-success {
+    background: linear-gradient(135deg, #00d68f 0%, #00a2c0 100%);
+    border: none;
+}
+
+#viewDriverModal .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 214, 143, 0.3);
+}
+
+#viewDriverModal .btn-light {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #64748b;
+}
+
+#viewDriverModal .btn-light:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+#viewDriverModal .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+#viewDriverModal .info-item {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+#viewDriverModal .detail-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+#viewDriverModal .detail-value {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* Card hover effect */
+#viewDriverModal .shadow-hover {
+    transition: all 0.3s ease;
+}
+
+#viewDriverModal .shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Icone nei titoli */
+#viewDriverModal .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#viewDriverModal .bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#viewDriverModal .bg-info-light {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#viewDriverModal .bg-warning-light {
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+#viewDriverModal .driver-text-primary {
+    color: #ff5a5f !important;
+}
+
+#viewDriverModal .driver-text-info {
+    color: #36D1DC !important;
+}
+
+#viewDriverModal .driver-text-warning {
+    color: #FFA500 !important;
+}
+
+/* Custom table styles */
+#viewDriverModal .custom-table-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#viewDriverModal .custom-table {
+    margin-bottom: 0;
+}
+
+#viewDriverModal .custom-table thead th {
+    background-color: #f9fafb;
+    color: #64748b;
+    font-weight: 600;
+    border: none;
+}
+
+#viewDriverModal .custom-table tbody td {
+    vertical-align: middle;
+    border-color: rgba(0,0,0,0.05);
+}
+
+#viewDriverModal .notes-container {
+    border-left: 3px solid #FFA500;
+}
+
+/* Badges */
+#viewDriverModal .badge-pill {
+    padding: 0.35em 0.8em;
+    border-radius: 50rem;
+    font-weight: 600;
+    font-size: 0.75em;
+}
+
+/* Bottoni di contatto */
+#viewDriverModal .contact-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#viewDriverModal .driver-btn-action {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: inherit;
+}
+
+#viewDriverModal .driver-btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+#viewDriverModal .driver-btn-primary-soft {
+    background-color: rgba(255, 90, 95, 0.15);
+    color: #ff5a5f;
+}
+
+#viewDriverModal .driver-btn-info-soft {
+    background-color: rgba(54, 209, 220, 0.15);
+    color: #36D1DC;
+}
+
+#viewDriverModal .driver-btn-success-soft {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+/* Bottoni azioni documenti */
+#viewDriverModal .driver-action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+/* Stile generale per i pulsanti di azione */
+#viewDriverModal .action-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+}
+
+#viewDriverModal .action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    color: white;
+}
+
+/* Pulsante visualizza */
+#viewDriverModal .view-btn {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+}
+
+#viewDriverModal .view-btn:hover {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+}
+
+/* Pulsante scarica */
+#viewDriverModal .download-btn {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+}
+
+#viewDriverModal .download-btn:hover {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+}
+
+/* Manteniamo per retrocompatibilità */
+#viewDriverModal .driver-action-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+}
+
+#viewDriverModal .driver-view-btn {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+}
+
+#viewDriverModal .driver-download-btn {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+}
+
+#viewDriverModal .driver-edit-btn {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+
+#viewDriverModal .driver-action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    color: white;
+}
+
+/* Sfondi soft per le icone */
+#viewDriverModal .bg-primary-soft {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#viewDriverModal .bg-info-soft {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#viewDriverModal .bg-success-soft {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+#viewDriverModal .bg-warning-soft {
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #viewDriverModal .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #viewDriverModal .custom-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    #viewDriverModal .modal-footer {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    
+    #viewDriverModal .modal-footer button {
+        width: 100%;
+    }
+}

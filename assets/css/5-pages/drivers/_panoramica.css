@@ -1,0 +1,414 @@
+/* File: assets/css/5-pages/drivers/_panoramica.css */
+/* Container principale per i driver - scope limitato con prefisso .drivers- */
+.drivers-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Intestazione con i filtri */
+.drivers-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #edf2f7;
+    background-color: #fdfdfd;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Configurazione del box di ricerca */
+.drivers-container .search-box {
+    max-width: 350px;
+    flex-grow: 1;
+}
+
+.drivers-container .search-box .input-group-text {
+    background-color: white;
+    border-right: none;
+}
+
+.drivers-container .search-box .form-control {
+    border-left: none;
+}
+
+.drivers-container .search-box .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+/* Stile per il pulsante di esportazione */
+.drivers-container .dropdown-item i {
+    color: var(--color-primary);
+    width: 1rem;
+    text-align: center;
+}
+
+.drivers-container .dropdown-item:hover {
+    background-color: var(--color-grey-100);
+}
+
+/* Filtri */
+.drivers-container .filter-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Dropdown di esportazione */
+.export-btn {
+    min-width: 140px;
+    box-shadow: none;
+}
+
+.export-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 2px;
+    padding: 0.5rem 0;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: white;
+    z-index: 1000;
+}
+
+/* Quando il dropdown è mostrato */
+.dropdown.show .export-dropdown {
+    display: block;
+}
+
+/* Tabella driver */
+.drivers-table {
+    overflow-x: auto;
+}
+
+.drivers-container .table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.drivers-container .table th, 
+.drivers-container .table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+.drivers-container .table th {
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-grey-200);
+    background-color: #f9fafb;
+    color: #64748b;
+}
+
+.drivers-container .table td {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    white-space: nowrap; /* Impedisce che il testo vada a capo */
+}
+
+.drivers-container .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+}
+
+.badge-primary {
+    background-color: rgba(255, 90, 95, 0.1);
+    color: #ff5a5f;
+}
+
+.badge-info {
+    background-color: rgba(0, 149, 255, 0.1);
+    color: #0095ff;
+}
+
+.badge-warning {
+    background-color: rgba(255, 170, 0, 0.1);
+    color: #ffaa00;
+}
+
+.badge-success {
+    background-color: rgba(0, 214, 143, 0.1);
+    color: #00d68f;
+}
+
+.badge-danger {
+    background-color: rgba(255, 61, 113, 0.1);
+    color: #ff3d71;
+}
+
+.badge-purple {
+    background-color: rgba(128, 0, 128, 0.1);
+    color: #800080;
+}
+
+.badge-orange {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: #ffa500;
+}
+
+/* Pulsanti azioni */
+.drivers-container .action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.drivers-container .action-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-base);
+    font-size: 0.8rem;
+}
+
+.drivers-container .view-btn {
+    background: var(--gradient-primary);
+}
+
+.drivers-container .edit-btn {
+    background: var(--gradient-secondary);
+}
+
+.drivers-container .action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+/* Footer con paginazione */
+.drivers-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #edf2f7;
+}
+
+.drivers-footer .pagination {
+    margin-bottom: 0;
+}
+
+/* Stile specifico per il rating */
+.driver-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rating-value {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .drivers-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .drivers-header > div:first-child {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .export-btn-container {
+        width: 100%;
+    }
+    
+    .export-btn-container .btn {
+        width: 100%;
+    }
+    
+    .drivers-container .search-box {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .drivers-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Stili per il modale di visualizzazione dei driver */
+#viewDriverModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#viewDriverModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#viewDriverModal .modal-title-container {
+    z-index: 1;
+    color: #fff;
+}
+
+#viewDriverModal .custom-tabs {
+    border-bottom: none;
+    background-color: #f9fafb;
+    padding: 0.5rem 1rem 0;
+}
+
+#viewDriverModal .custom-tabs .nav-link {
+    border: none;
+    color: #64748b;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#viewDriverModal .custom-tabs .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#viewDriverModal .custom-tabs .nav-link.active {
+    color: #ff5a5f;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+#viewDriverModal .custom-tabs .nav-link.active:after {
+    transform: scaleX(1);
+}
+
+#viewDriverModal .profile-card {
+    overflow: hidden;
+}
+
+#viewDriverModal .profile-banner {
+    height: 80px;
+    background: linear-gradient(90deg, rgba(255,90,95,0.8) 0%, rgba(255,143,107,0.8) 100%);
+}
+
+#viewDriverModal .profile-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+}
+
+#viewDriverModal .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#viewDriverModal .rating-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFD166, #FFA500);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(255, 165, 0, 0.2);
+}
+
+#viewDriverModal .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+#viewDriverModal .detail-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+#viewDriverModal .detail-value {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+#viewDriverModal .status-badge {
+    padding: 0.35em 1em;
+    border-radius: 50px;
+    font-size: 0.75em;
+}
+
+#viewDriverModal .status-active {
+    background-color: rgba(0, 214, 143, 0.1);
+    color: #00d68f;
+}
+
+#viewDriverModal .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#viewDriverModal .bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#viewDriverModal .driver-text-primary {
+    color: #ff5a5f !important;
+}
+
+/* Stile per il modale di modifica */
+#editDriverModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#editDriverModal .modal-title-container {
+    z-index: 1;
+    color: #fff;
+}
+
+#editDriverModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}

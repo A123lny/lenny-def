@@ -1,0 +1,703 @@
+/**
+ * Stili per il componente di gestione turni driver
+ */
+
+/* Vista settimanale e giornaliera */
+.shift-view {
+    display: none;
+}
+
+.shift-view.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Tabella turni settimanali */
+.turni-table-container {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.table-turni {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table-turni th {
+    text-align: center;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    font-weight: 600;
+    padding: 0.75rem;
+    color: #64748b;
+    border-bottom: 1px solid var(--color-grey-200);
+}
+
+.table-turni th:first-child {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.table-turni td {
+    vertical-align: top;
+    height: 120px;
+    padding: 0.5rem;
+    position: relative;
+}
+
+/* Celle singole */
+.shift-cell {
+    min-width: 130px;
+    height: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-grey-200);
+    transition: all 0.2s ease;
+}
+
+.shift-cell:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.shift-cell.drop-target {
+    background-color: rgba(255, 90, 95, 0.1);
+    border: 1px dashed #ff5a5f;
+}
+
+/* Stili per le fasce orarie con colori sfumati */
+/* Fascia Mattina - leggera tonalità giallo/arancio come il sole che sorge */
+tr:nth-of-type(1) .shift-cell {
+    background-color: rgba(255, 188, 31, 0.06); /* --color-accent-1 con bassa opacità */
+}
+
+/* Fascia Pranzo - leggera tonalità rossa/primaria */
+tr:nth-of-type(2) .shift-cell {
+    background-color: rgba(255, 90, 95, 0.04); /* --color-primary con bassa opacità */
+}
+
+/* Fascia Pomeriggio - leggera tonalità turchese/verde acqua */
+tr:nth-of-type(3) .shift-cell {
+    background-color: rgba(0, 196, 180, 0.04); /* --color-accent-3 con bassa opacità */
+}
+
+/* Fascia Cena - leggera tonalità viola/indaco per la sera */
+tr:nth-of-type(4) .shift-cell {
+    background-color: rgba(138, 79, 255, 0.04); /* --color-accent-2 con bassa opacità */
+}
+
+/* Left border accenti per le intestazioni delle fasce orarie */
+tr:nth-of-type(1) th:first-child {
+    border-left: 4px solid rgba(255, 188, 31, 0.5); /* Mattina */
+}
+
+tr:nth-of-type(2) th:first-child {
+    border-left: 4px solid rgba(255, 90, 95, 0.5); /* Pranzo */
+}
+
+tr:nth-of-type(3) th:first-child {
+    border-left: 4px solid rgba(0, 196, 180, 0.5); /* Pomeriggio */
+}
+
+tr:nth-of-type(4) th:first-child {
+    border-left: 4px solid rgba(138, 79, 255, 0.5); /* Cena */
+}
+
+/* Icon color per le intestazioni delle fasce orarie */
+tr:nth-of-type(1) .shift-name {
+    color: var(--color-accent-1); /* Mattina */
+}
+
+tr:nth-of-type(2) .shift-name {
+    color: var(--color-primary); /* Pranzo */
+}
+
+tr:nth-of-type(3) .shift-name {
+    color: var(--color-accent-3); /* Pomeriggio */
+}
+
+tr:nth-of-type(4) .shift-name {
+    color: var(--color-accent-2); /* Cena */
+}
+
+/* Stile per le fasce orarie */
+.shift-time {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5rem;
+}
+
+.shift-name {
+    font-weight: 600;
+    color: var(--color-grey-800);
+}
+
+.shift-hours {
+    font-size: 0.85rem;
+    color: var(--color-grey-600);
+}
+
+/* Card dei driver nei turni */
+.driver-shift {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid;
+    cursor: grab;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    position: relative;
+    padding-right: 55px; /* Aumentato spazio a destra per i pulsanti di azione */
+    min-height: 50px; /* Altezza minima per assicurare spazio per i pulsanti */
+}
+
+.driver-shift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.driver-shift.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.driver-shift.available {
+    border-left-color: #ff5a5f;
+}
+
+.driver-shift.warning {
+    border-left-color: #ffaa00;
+}
+
+.driver-shift.danger {
+    border-left-color: #ff3d71;
+}
+
+.driver-shift.custom-time {
+    border-left-color: #ffaa00;
+}
+
+/* Stili generici per il nome del driver */
+.driver-name {
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+}
+
+/* Vista settimanale - nome driver allineato a sinistra */
+.driver-shift .driver-name {
+    text-align: left;
+}
+
+/* Vista giornaliera - nome driver centrato */
+.driver-shift-detail .driver-name {
+    text-align: center;
+}
+
+.driver-custom-time {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #ff8c00;
+}
+
+/* Stile generico dello stato driver */
+.driver-status {
+    font-size: 0.8rem;
+    color: var(--color-grey-500);
+}
+
+/* Vista settimanale - stato allineato a sinistra */
+.driver-shift .driver-status {
+    text-align: left;
+}
+
+/* Vista giornaliera - stato centrato */
+.driver-shift-detail .driver-status {
+    text-align: center;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Pulsanti di cambio vista */
+.period-chart-buttons {
+    display: flex;
+    background-color: var(--color-grey-100);
+    border-radius: 50px;
+    padding: 0.25rem;
+}
+
+.period-chart-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--color-grey-600);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.period-chart-btn.active {
+    background-color: #fff;
+    color: #ff5a5f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.period-chart-btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    background: rgba(255, 255, 255, .6);
+    opacity: 0;
+    border-radius: 50%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.period-chart-btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0, 0); opacity: .5; }
+    100% { transform: scale(100, 100); opacity: 0; }
+}
+
+.period-chart-btn:active:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+
+.period-chart-btn:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+}
+
+/* Stile rettangolare per i pulsanti di cambio vista */
+.btn-rectangle {
+    min-width: 150px !important;
+    padding: 0.5rem 1.25rem !important;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+/* Stile per i pulsanti attivi */
+.period-chart-btn.active.btn-rectangle {
+    font-weight: 600;
+}
+
+/* Badge per i totali driver */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Bottoni con gradienti per aggiungere driver */
+.btn-gradient-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(255, 90, 95, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 90, 95, 0.4);
+    color: white;
+}
+
+/* Shadow hover per le card dei turni giornalieri */
+.shadow-hover {
+    transition: all 0.3s ease;
+}
+
+.shadow-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per i turni giornalieri */
+.daily-shift-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.shift-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.shift-drivers-list {
+    padding: 1rem;
+}
+
+/* Modifica dello stile dei dettagli del turno nella vista giornaliera */
+.driver-shift-detail {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-left: 4px solid;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+    cursor: grab;
+    position: relative;
+    padding-right: 65px; /* Spazio per i pulsanti nella vista giornaliera */
+    min-height: 65px; /* Altezza minima per garantire lo spazio per tutti i pulsanti */
+}
+
+.driver-shift-detail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.driver-shift-detail.dragging {
+    opacity: 0.5;
+}
+
+.driver-shift-detail.available {
+    border-left-color: #ff5a5f;
+}
+
+.driver-shift-detail.warning {
+    border-left-color: #ffaa00;
+}
+
+.driver-shift-detail.danger {
+    border-left-color: #ff3d71;
+}
+
+/* Avatar rimosso completamente dalla vista giornaliera */
+.driver-avatar {
+    display: none;
+}
+
+/* Vista settimanale - informazioni driver allineate a sinistra */
+.driver-shift .driver-info {
+    text-align: left;
+    flex: 1;
+}
+
+/* Vista giornaliera - informazioni driver centrate */
+.driver-shift-detail .driver-info {
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.driver-contacts {
+    font-size: 0.85rem;
+    display: flex;
+    margin-top: 0.25rem;
+}
+
+.driver-phone, .driver-whatsapp {
+    color: #64748b;
+    margin-right: 0.5rem;
+    transition: all 0.2s;
+}
+
+.driver-phone:hover {
+    color: #3b82f6;
+}
+
+.driver-whatsapp:hover {
+    color: #25D366;
+}
+
+.shift-actions {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.shift-actions button {
+    margin-left: 0.35rem;
+}
+
+.add-driver-placeholder {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+}
+
+.empty-shift-message {
+    text-align: center;
+    color: #94a3b8;
+    padding: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Stile per il punto di inserimento (vacancy) */
+.shift-vacancy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 1px dashed var(--color-grey-300);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.shift-vacancy:hover {
+    border-color: #ff5a5f;
+    background-color: rgba(255, 90, 95, 0.05);
+}
+
+.shift-vacancy-icon {
+    color: var(--color-grey-500);
+    font-size: 0.8rem;
+}
+
+/* Stile per i modali nella sezione turni - Gradiente rosso-arancione */
+.modal-header-bg {
+    height: 60px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+.modal-title-container {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    color: white;
+}
+
+.modal-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.driver-modal-button {
+    min-width: 120px;
+}
+
+/* Bottone conferma turni e animazione */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 214, 143, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 214, 143, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 214, 143, 0);
+    }
+}
+
+/* Rimosso e sostituito con .weekly-action-buttons */
+
+/* Stile comune per i pulsanti di azione */
+.edit-shift-btn,
+.delete-shift-btn,
+.phone-btn,
+.whatsapp-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    color: #64748b;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+}
+
+/* Stile migliorato per i pulsanti sempre visibili */
+.driver-shift .edit-shift-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+}
+
+.driver-shift .delete-shift-btn {
+    background-color: #fef1f1;
+    border: 1px solid #f8d7da;
+}
+
+.driver-shift .edit-shift-btn:hover {
+    background-color: #edf7fc;
+    color: #0d6efd;
+    border-color: #0d6efd;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.driver-shift .delete-shift-btn:hover {
+    background-color: #ffebeb;
+    color: #dc3545;
+    border-color: #dc3545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.driver-shift .edit-shift-btn i,
+.driver-shift .delete-shift-btn i {
+    font-size: 0.7rem;
+}
+
+/* Layout dei pulsanti di azione - Stile generico comune */
+.action-buttons {
+    display: flex;
+    gap: 4px;
+    opacity: 1; /* Sempre visibile */
+    z-index: 10;
+}
+
+/* Specifico per la vista settimanale */
+.weekly-action-buttons {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    flex-direction: column;
+}
+
+/* Specifico per la vista giornaliera */
+.daily-action-buttons {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    flex-direction: column;
+    transform: translateY(-50%);
+    gap: 6px;
+}
+
+.action-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+/* Rimosso e sostituito con .daily-action-buttons */
+
+/* I pulsanti utilizzano ora lo stile comune definito sopra */
+
+/* Stile migliorato per i pulsanti di modifica e cancellazione (comune a entrambe le viste) */
+.edit-shift-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+}
+
+.delete-shift-btn {
+    background-color: #fef1f1;
+    border: 1px solid #f8d7da;
+}
+
+.edit-shift-btn:hover {
+    background-color: #edf7fc;
+    color: #0d6efd;
+    border-color: #0d6efd;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-shift-btn:hover {
+    background-color: #ffebeb;
+    color: #dc3545;
+    border-color: #dc3545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-shift-btn i,
+.delete-shift-btn i {
+    font-size: 0.7rem;
+}
+
+/* Pulsanti phone e whatsapp con stile armonizzato agli altri pulsanti - usano ora lo stile comune */
+
+.phone-btn {
+    background-color: #edf5ff;
+    border: 1px solid #d0e2ff;
+}
+
+.whatsapp-btn {
+    background-color: #ebfaef;
+    border: 1px solid #c6f0d4;
+}
+
+.phone-btn:hover {
+    background-color: #e1f0ff;
+    color: #3b82f6;
+    border-color: #3b82f6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-btn:hover {
+    background-color: #e1ffec;
+    color: #25D366;
+    border-color: #25D366;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.phone-btn i,
+.whatsapp-btn i,
+.edit-shift-btn i,
+.delete-shift-btn i {
+    font-size: 0.75rem;
+}

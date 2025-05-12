@@ -1,0 +1,147 @@
+/**
+ * Lenny Food Delivery - Maps
+ * Stili per mappe e marcatori nell'applicazione
+ */
+
+/* Stili per i marcatori della mappa */
+.driver-marker {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(255, 90, 95, 0.4);
+    animation: pulse-marker 1.5s infinite;
+    color: white;
+    font-size: 14px;
+}
+
+.driver-marker i {
+    color: white;
+}
+
+@keyframes pulse-marker {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 90, 95, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 90, 95, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 90, 95, 0);
+    }
+}
+
+.restaurant-marker {
+    background-color: #2ecc71;
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 14px;
+}
+
+.customer-marker {
+    background-color: #3498db;
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 14px;
+}
+
+/* Marker per le posizioni nella timeline di consegna */
+.delivery-position {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.delivery-position.active {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(255, 90, 95, 0.2);
+}
+
+/* Stili per i popup di Leaflet */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content {
+    margin: 10px 12px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+}
+
+.leaflet-popup-content b {
+    color: var(--color-grey-900);
+    display: block;
+    margin-bottom: 3px;
+}
+
+.leaflet-popup-tip {
+    background-color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: var(--color-grey-600);
+    transition: all 0.2s ease;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: var(--color-grey-800);
+    background-color: var(--color-grey-200);
+}
+
+/* Stili aggiuntivi per la mappa */
+.driver-marker-icon {
+    background: none !important;
+    border: none !important;
+}
+
+/* Driver current location */
+.driver-current-location {
+    padding: 0.75rem;
+    background-color: var(--color-grey-100);
+    border-radius: var(--border-radius);
+    color: var(--color-grey-800);
+    font-weight: 500;
+}
+
+.driver-current-location i {
+    color: var(--color-warning);
+    margin-right: 0.5rem;
+}
+
+/* Driver location styling */
+.driver-location-details {
+    padding: 10px 12px;
+    background-color: rgba(255, 170, 0, 0.1);
+    border-radius: var(--border-radius);
+    color: var(--color-grey-700);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notification-map-container {
+    height: 180px;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color-grey-100);
+}

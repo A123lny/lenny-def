@@ -1,0 +1,297 @@
+/**
+ * Lenny Food Delivery - Buttons
+ * Stili per i bottoni dell'applicazione
+ */
+
+/* Stili base per i bottoni */
+.btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition-base);
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+/* Varianti di colore */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-hover);
+    border-color: var(--color-secondary-hover);
+    box-shadow: var(--shadow-secondary);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+    color: white;
+}
+
+.btn-info {
+    background-color: var(--color-info);
+    border-color: var(--color-info);
+    color: white;
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    border-color: var(--color-danger);
+    color: white;
+}
+
+/* Varianti outline */
+.btn-outline-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+}
+
+/* Varianti di dimensione */
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-lg);
+}
+
+/* Bottoni con icone */
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+.btn-icon-sm {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-sm);
+}
+
+.btn-icon-lg {
+    width: 48px;
+    height: 48px;
+    font-size: var(--font-size-lg);
+}
+
+.btn-icon-rounded {
+    border-radius: 50%;
+}
+
+/* Stile base per i pulsanti circolari di azione (icona) */
+.header-actions .btn-action,
+.action-item .btn-action {
+    width: 38px; 
+    height: 38px; 
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+}
+
+.header-actions .btn-action:hover,
+.action-item .btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Varianti colorate per i pulsanti d'azione circolari */
+.btn-action.btn-primary,
+.header-actions .btn-primary,
+.action-item .btn-primary {
+    background: var(--gradient-primary);
+}
+
+.btn-action.btn-secondary,
+.header-actions .btn-secondary,
+.action-item .btn-secondary {
+    background: var(--gradient-secondary);
+}
+
+.btn-action.btn-success,
+.header-actions .btn-success,
+.action-item .btn-success {
+    background: linear-gradient(to right, #28a745, #20c997);
+}
+
+.btn-action.btn-info,
+.header-actions .btn-info,
+.action-item .btn-info {
+    background: linear-gradient(to right, #0095ff, #2c7be5);
+}
+
+.btn-action.btn-warning,
+.header-actions .btn-warning,
+.action-item .btn-warning {
+    background: linear-gradient(to right, #ffaa00, #ffc107);
+}
+
+.btn-action.btn-danger,
+.header-actions .btn-danger,
+.action-item .btn-danger {
+    background: linear-gradient(to right, #ff3d71, #ff5b92);
+}
+/* Pulsante di visualizzazione nella tabella */
+.view-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    background: var(--gradient-primary);
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-primary);
+}
+
+.view-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 90, 95, 0.3);
+    color: white;
+}
+/* Bottoni nel modal di dettaglio */
+.modal-footer .btn-primary,
+.modal-footer .btn-outline-primary,
+.modal .btn-primary,
+.modal .btn-outline-primary,
+.modal-content .btn-primary,
+.notification-modal-content .btn-primary,
+.notification-modal-footer .btn-primary,
+#saveOrderBtn,
+#nextStepBtn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.modal .btn-secondary,
+.modal-content .btn-secondary,
+.notification-modal-content .btn-secondary,
+.notification-modal-footer .btn-secondary,
+#prevStepBtn,
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+}
+
+.modal-footer .btn-outline-primary {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.modal-footer .btn-outline-primary:hover {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* Assicurare che le icone nei pulsanti siano sempre visibili e colorate correttamente */
+.btn-action i,
+.header-actions i,
+.action-item i,
+.btn-primary i,
+.btn-secondary i,
+.btn-success i,
+.btn-info i,
+.btn-warning i,
+.btn-danger i {
+    color: white;
+}
+
+/* Stile per la timeline nei ristoranti */
+.period-btn {
+    background-color: var(--color-grey-200);
+    color: var(--color-grey-700);
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-pill);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.period-btn:hover {
+    background-color: var(--color-grey-300);
+    color: var(--color-primary);
+}
+
+.period-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* Effetto ripple per i bottoni */
+.period-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.period-btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}

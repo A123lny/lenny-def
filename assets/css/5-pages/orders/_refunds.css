@@ -1,0 +1,276 @@
+/**
+ * Lenny Food Delivery - Stili per la gestione rimborsi
+ * Questo file contiene tutti gli stili specifici per la pagina rimborsi e relativi componenti
+ */
+
+/* Stili header */
+.refund-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-grey-200);
+}
+
+.refund-id {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-grey-800);
+}
+
+/* Sezioni rimborsi */
+.refund-section {
+    margin-bottom: 25px;
+}
+
+.refund-section h5 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--color-grey-700);
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.refund-section h5:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+/* Griglia informazioni */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.info-item .info-label {
+    font-size: 0.85rem;
+    color: var(--color-grey-600);
+    margin-bottom: 4px;
+}
+
+.info-item .info-value {
+    font-weight: 500;
+    color: var(--color-grey-800);
+}
+
+/* Note dei rimborsi */
+.refund-notes {
+    padding: 15px;
+    background-color: var(--color-grey-100);
+    border-radius: var(--border-radius);
+    color: var(--color-grey-700);
+    font-style: italic;
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Footer modali */
+.notification-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.left-action, .right-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Badge di stato rimborsi */
+.status-badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.badge-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #e6a500;
+}
+
+.badge-success {
+    background-color: rgba(25, 135, 84, 0.15);
+    color: #198754;
+}
+
+.badge-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+/* Background per gli stati nei modali */
+.status-bg-warning {
+    background-color: #ffc107;
+}
+
+.status-bg-success {
+    background-color: #198754;
+}
+
+.status-bg-danger {
+    background-color: #dc3545;
+}
+
+.status-bg-secondary {
+    background-color: #6c757d;
+}
+
+/* Pulsanti azioni nella tabella */
+.orders-container .action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.orders-container .action-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-base);
+    font-size: 0.8rem;
+}
+
+.orders-container .view-btn {
+    background: var(--gradient-primary);
+}
+
+.orders-container .print-btn {
+    background: var(--gradient-secondary);
+}
+
+.orders-container .action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+/* Ricerca e filtri */
+.orders-header {
+    padding: 1.25rem;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.search-box {
+    max-width: 350px;
+}
+
+.search-box .input-group-text {
+    background-color: white;
+    border-right: none;
+}
+
+.search-box .form-control {
+    border-left: none;
+    box-shadow: none;
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+}
+
+.filter-group {
+    margin-right: auto;
+}
+
+.filter-container .form-select {
+    background-color: white;
+    border-color: #ced4da;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.filter-container .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(255, 90, 95, 0.15);
+}
+
+/* Filtro per periodo */
+.period-filter {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2px;
+    border: 1px solid #ced4da;
+}
+
+.period-btn {
+    background: none;
+    border: none;
+    color: var(--color-grey-700);
+    padding: 4px 10px;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.period-btn:hover {
+    color: var(--color-primary);
+    background-color: var(--color-grey-100);
+}
+
+.period-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 2px 5px rgba(255, 90, 95, 0.2);
+}
+
+/* Pulsante esportazione */
+.export-btn {
+    background: var(--gradient-primary);
+    border: none;
+    box-shadow: 0 2px 6px rgba(255, 90, 95, 0.2);
+    transition: all 0.3s ease;
+    min-width: 140px;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 90, 95, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .filter-container {
+        width: 100%;
+    }
+    
+    .filter-container .form-select {
+        width: 100%;
+    }
+    
+    .period-filter {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .export-btn {
+        width: 100%;
+    }
+}

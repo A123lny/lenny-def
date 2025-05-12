@@ -1,0 +1,387 @@
+/**
+ * Lenny Food Delivery - Dashboard
+ * Stili specifici per la pagina dashboard
+ */
+
+/* Titolo della sezione */
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-grey-900);
+    margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+    color: var(--color-grey-600);
+    margin-bottom: 0;
+}
+
+/* Prodotti più venduti */
+.top-products {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.top-product-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid transparent;
+    animation-duration: 0.6s;
+}
+
+.top-product-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.top-product-item:nth-child(1) {
+    border-left-color: var(--color-primary);
+}
+
+.top-product-item:nth-child(2) {
+    border-left-color: var(--color-secondary);
+}
+
+.top-product-item:nth-child(3) {
+    border-left-color: var(--color-accent-1);
+}
+
+.top-product-item:nth-child(4) {
+    border-left-color: var(--color-accent-2);
+}
+
+.top-product-item:nth-child(5) {
+    border-left-color: var(--color-accent-3);
+}
+
+.top-product-rank {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    margin-right: 1rem;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.rank-primary {
+    background: var(--gradient-primary);
+    border-left-color: var(--color-primary);
+}
+
+.rank-secondary {
+    background: var(--gradient-secondary);
+    border-left-color: var(--color-secondary);
+}
+
+.rank-accent1 {
+    background: var(--gradient-accent-1);
+    border-left-color: var(--color-accent-1);
+}
+
+.rank-accent2 {
+    background: var(--gradient-accent-2);
+    border-left-color: var(--color-accent-2);
+}
+
+.rank-accent3 {
+    background: var(--gradient-accent-3);
+    border-left-color: var(--color-accent-3);
+}
+
+.top-product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.top-product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.top-product-name {
+    font-weight: 600;
+    color: var(--color-grey-900);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 1rem;
+}
+
+.top-product-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.top-product-progress {
+    width: 100%;
+}
+
+.top-product-progress .progress {
+    height: 6px;
+    background-color: var(--color-grey-100);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-primary {
+    background: var(--gradient-primary);
+}
+
+.progress-secondary {
+    background: var(--gradient-secondary);
+}
+
+.progress-accent1 {
+    background: var(--gradient-accent-1);
+}
+
+.progress-accent2 {
+    background: var(--gradient-accent-2);
+}
+
+.progress-accent3 {
+    background: var(--gradient-accent-3);
+}
+
+.top-product-sold {
+    font-size: 0.75rem;
+    color: var(--color-grey-600);
+    white-space: nowrap;
+}
+
+/* Badge di stato */
+.status-badge {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+}
+
+.badge-primary {
+    background-color: rgba(255, 90, 95, 0.1);
+    color: #ff5a5f;
+}
+
+.badge-info {
+    background-color: rgba(0, 149, 255, 0.1);
+    color: #0095ff;
+}
+
+.badge-warning {
+    background-color: rgba(255, 170, 0, 0.1);
+    color: #ffaa00;
+}
+
+.badge-success {
+    background-color: rgba(0, 214, 143, 0.1);
+    color: #00d68f;
+}
+
+.badge-danger {
+    background-color: rgba(255, 61, 113, 0.1);
+    color: #ff3d71;
+}
+
+/* Aggiustamenti del layout per la dashboard */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+.g-4 > * {
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+/* Correzioni per le tabelle */
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+.table th {
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-grey-200);
+}
+
+.table td {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Card header fixes */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-grey-200);
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+/* Animazioni per le tabelle */
+.animate__fadeIn {
+    animation-duration: 0.6s;
+}
+
+/* Fix per le righe della tabella */
+.table-hover tr {
+    transition: background-color 0.2s ease;
+}
+
+/* Stile per i bottoni periodo del grafico */
+.period-chart-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.period-chart-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: var(--color-grey-700);
+    border: 1px solid var(--color-grey-200);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.period-chart-btn:hover {
+    background-color: var(--color-grey-100);
+    border-color: var(--color-grey-300);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.period-chart-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+}
+
+.period-chart-btn.active:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    .period-chart-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .period-chart-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+}
+
+/* Fix per il selettore dei periodi */
+.date-range-picker {
+    position: relative;
+}
+
+.period-dropdown-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: var(--color-grey-700);
+    border: 1px solid var(--color-grey-200);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.period-dropdown-btn:hover, 
+.period-dropdown-btn:focus {
+    background-color: var(--color-grey-100);
+    border-color: var(--color-grey-300);
+}
+
+.custom-dropdown {
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    min-width: 180px;
+    animation: dropdown-fade-in 0.2s ease-out;
+}
+
+.custom-dropdown .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: var(--color-grey-700);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.custom-dropdown .dropdown-item:hover,
+.custom-dropdown .dropdown-item:focus {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
+}
+
+@keyframes dropdown-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

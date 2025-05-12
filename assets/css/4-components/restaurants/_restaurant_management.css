@@ -1,0 +1,342 @@
+/**
+ * Restaurant Management Modal Styles
+ * Stili per il modal di gestione ristoranti
+ */
+
+/* Stili per l'header dei modali */
+.modal-header-bg {
+    height: 60px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-title-container {
+    z-index: 1;
+}
+
+.modal-title {
+    color: white;
+    font-weight: 600;
+}
+
+.modal-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-active {
+    background-color: rgba(0, 214, 143, 0.15);
+    color: #00d68f;
+}
+
+.status-inactive {
+    background-color: rgba(255, 90, 95, 0.15);
+    color: #ff5a5f;
+}
+
+/* Stili per il modal di gestione ristorante */
+.restaurant-management-container {
+    display: flex;
+    height: calc(100vh - 136px); /* Altezza totale meno header e footer */
+}
+
+.restaurant-management-sidebar {
+    width: 270px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #edf2f7;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.restaurant-management-sidebar-header {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.restaurant-avatar-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(255,90,95,0.25);
+    margin: 0 auto;
+}
+
+.restaurant-management-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-management-menu-item {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #edf2f7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    color: #4a5568;
+}
+
+.restaurant-management-menu-item i {
+    margin-right: 0.75rem;
+    color: #718096;
+    width: 20px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.restaurant-management-menu-item:hover {
+    background-color: #f0f5ff;
+    color: #ff5a5f;
+}
+
+.restaurant-management-menu-item:hover i {
+    color: #ff5a5f;
+}
+
+.restaurant-management-menu-item.active {
+    background-color: rgba(255, 90, 95, 0.1);
+    color: #ff5a5f;
+    font-weight: 500;
+    position: relative;
+}
+
+.restaurant-management-menu-item.active i {
+    color: #ff5a5f;
+}
+
+.restaurant-management-menu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+}
+
+.restaurant-management-content {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.restaurant-management-tab {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.restaurant-management-tab.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stili per i componenti nei tab */
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+.text-primary {
+    color: #ff5a5f !important;
+}
+
+.driver-text-primary {
+    color: #ff5a5f !important;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #4a5568;
+}
+
+.custom-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-table thead th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #4a5568;
+    padding: 0.75rem;
+    border-top: none;
+}
+
+.custom-table tbody td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-color: #edf2f7;
+}
+
+.driver-modal-button {
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    padding: 0.375rem 0.875rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    border: none;
+    box-shadow: 0 2px 5px rgba(255, 90, 95, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 90, 95, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #00d68f 0%, #00a2c0 100%);
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 214, 143, 0.2);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 214, 143, 0.3);
+}
+
+.btn-outline-primary {
+    color: #ff5a5f;
+    border-color: #ff5a5f;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff5a5f;
+    color: white;
+}
+
+.btn-light {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #64748b;
+}
+
+.btn-light:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.form-check-input:checked {
+    background-color: #ff5a5f;
+    border-color: #ff5a5f;
+}
+
+.restaurant-map-container {
+    height: 200px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.restaurant-map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Stili per il bordo del modal footer */
+.modal-footer.border-top {
+    border-color: #edf2f7 !important;
+}
+
+/* Stili per input e select nei form */
+.form-control, .form-select {
+    border-color: #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #ff5a5f;
+    box-shadow: 0 0 0 0.2rem rgba(255, 90, 95, 0.15);
+}
+
+/* Stili per alert info nei tab in sviluppo */
+.alert-info {
+    background-color: #EBF8FF;
+    border-color: #BEE3F8;
+    color: #3182CE;
+    border-radius: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .restaurant-management-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .restaurant-management-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .restaurant-management-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .restaurant-management-menu-item {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        width: auto;
+        font-size: 0.9rem;
+    }
+    
+    .restaurant-management-menu-item.active::before {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .restaurant-management-menu-item {
+        width: 100%;
+    }
+    
+    .restaurant-management-content {
+        padding: 1rem;
+    }
+}

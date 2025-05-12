@@ -1,0 +1,136 @@
+/**
+ * Lenny Food Delivery - Toast Notifications
+ * Stili per il componente Toast di notifica
+ */
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1080;
+    max-width: 350px;
+}
+
+.toast-box {
+    display: flex;
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 10px;
+}
+
+.toast-icon {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.toast-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--color-grey-200);
+}
+
+.toast-header strong {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-close-toast {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-grey-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+    padding: 0;
+}
+
+.btn-close-toast:hover {
+    background-color: var(--color-grey-200);
+    color: var(--color-grey-800);
+}
+
+.toast-body {
+    padding: 12px 15px;
+    color: var(--color-grey-800);
+}
+
+/* Colori per i tipi di toast */
+.toast-box .bg-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #ff8f6b 100%);
+}
+
+.toast-box .bg-success {
+    background: linear-gradient(135deg, #00d68f 0%, #00a2c0 100%);
+}
+
+.toast-box .bg-warning {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff6a00 100%);
+}
+
+.toast-box .bg-danger {
+    background: linear-gradient(135deg, #ff3d71 0%, #ff709e 100%);
+}
+
+.toast-box .bg-info {
+    background: linear-gradient(135deg, #36D1DC 0%, #5B86E5 100%);
+}
+
+/* Animazioni specifiche per i toast */
+.toast-container .toast-box.toast-animate-in {
+    animation-duration: 0.5s;
+    animation-name: toastFadeInUp;
+}
+
+.toast-container .toast-box.toast-animate-out {
+    animation-duration: 0.5s;
+    animation-name: toastFadeOutDown;
+}
+
+@keyframes toastFadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes toastFadeOutDown {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .toast-container {
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+}

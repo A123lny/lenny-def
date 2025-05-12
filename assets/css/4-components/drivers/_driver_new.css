@@ -1,0 +1,183 @@
+/**
+ * Lenny Food Delivery - Nuovo Driver Wizard Modal
+ * Stili specifici per il modal wizard di creazione nuovo driver
+ */
+
+/* Stili base del modal */
+#newDriverModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header con sfondo sfumato */
+#newDriverModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#newDriverModal .modal-title-container {
+    z-index: 1;
+}
+
+#newDriverModal .modal-title {
+    color: white;
+    font-weight: 600;
+}
+
+/* Icona nel titolo */
+#newDriverModal .wizard-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Progress wizard */
+.wizard-progress-container {
+    position: relative;
+    margin-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 10px 5px;
+}
+
+.progress-step::after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    right: -50%;
+    height: 3px;
+    background: #dee2e6;
+    z-index: -1;
+}
+
+.progress-step:last-child::after {
+    display: none;
+}
+
+.progress-step.active .step-icon,
+.progress-step.completed .step-icon {
+    background-color: #ff5a5f;
+    color: white;
+}
+
+.progress-step.active .step-label,
+.progress-step.completed .step-label {
+    color: #ff5a5f;
+    font-weight: 600;
+}
+
+.progress-step.active::after,
+.progress-step.completed::after {
+    background: #ff5a5f;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    margin: 0 auto 8px;
+    transition: all 0.3s ease;
+}
+
+.step-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+/* Icone circolari nei titoli dei passi */
+.wizard-circle-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Bottoni wizard */
+.wizard-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.wizard-next-btn,
+.wizard-prev-btn,
+.wizard-submit-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Effetto hover sui bottoni */
+.wizard-next-btn:hover,
+.wizard-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stili per i passi wizard */
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+/* Validazione form */
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Card nel riepilogo */
+#newDriverModal .card {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#newDriverModal .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 12px 16px;
+}

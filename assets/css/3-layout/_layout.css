@@ -1,0 +1,144 @@
+/**
+ * Lenny Food Delivery - Layout principale
+ * Stili per la struttura generale del layout dell'applicazione
+ */
+
+/* Layout principale */
+.layout-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Main content */
+.main-content {
+    /* Ripristino il padding-top per evitare sovrapposizioni con l'header */
+    padding-top: var(--header-height);
+    min-height: 100vh;
+    /* Imposto un margine sinistro fisso basato sulla larghezza della sidebar */
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.page-container {
+    /* Manteniamo il padding laterale per i bordi */
+    padding: 1.5rem;
+    /* Riduciamo il margine negativo per spostare il contenuto più in basso */
+    margin-top: -0.5rem;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive layout */
+@media (max-width: 991.98px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: var(--header-height);
+    }
+    
+    .page-container {
+        margin-top: -0.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-container {
+        padding: 1rem;
+        margin-top: -0.5rem;
+    }
+}
+
+/* Correzioni Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+    margin-left: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+}
+
+.row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+    padding-left: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+    margin-top: var(--bs-gutter-y, 0);
+}
+
+/* Grid classes */
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.col-md-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+}
+
+.col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8 {
+        width: 100%;
+    }
+}
+
+/* Media query specifiche */
+.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+}
+
+/* Helper positioning */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}

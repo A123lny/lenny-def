@@ -1,0 +1,259 @@
+/**
+ * Lenny Food Delivery - Driver Edit Modal
+ * Stili specifici per il modal di modifica dettagli driver
+ * Adattato direttamente dal modal di visualizzazione (driver_view.css)
+ */
+
+/* Stili base del modal */
+#editDriverModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Modifica dell'overlay del modale per renderlo meno scuro */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Opacità ridotta da 0.8+ a 0.5 */
+}
+
+.modal-backdrop.show {
+    opacity: 0.5; /* Opacità ridotta */
+}
+
+#editDriverModal .modal-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 0;
+}
+
+#editDriverModal .modal-title-container {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+}
+
+#editDriverModal .modal-title {
+    color: white;
+    font-weight: 600;
+}
+
+#editDriverModal .modal-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Stili per le tabs di navigazione */
+#editDriverModal .custom-tabs {
+    border-bottom: none;
+    background-color: #f9fafb;
+    padding: 0.5rem 1rem 0;
+}
+
+#editDriverModal .custom-tabs .nav-link {
+    border: none;
+    color: #64748b;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#editDriverModal .custom-tabs .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#editDriverModal .custom-tabs .nav-link.active {
+    color: #ff5a5f;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+#editDriverModal .custom-tabs .nav-link.active:after {
+    transform: scaleX(1);
+}
+
+#editDriverModal .custom-tabs .nav-link:hover:not(.active) {
+    color: #ff5a5f;
+}
+
+/* Stile per i pulsanti */
+#editDriverModal .driver-modal-button {
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+#editDriverModal .btn-primary {
+    background: linear-gradient(135deg, #ff5a5f 0%, #ff8f6b 100%);
+    border: none;
+}
+
+#editDriverModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 90, 95, 0.3);
+}
+
+#editDriverModal .btn-light {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #64748b;
+}
+
+#editDriverModal .btn-light:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+/* Stili per le icone circolari */
+#editDriverModal .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#editDriverModal .bg-primary-light {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#editDriverModal .bg-info-light {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#editDriverModal .driver-text-primary {
+    color: #ff5a5f !important;
+}
+
+#editDriverModal .driver-text-info {
+    color: #36D1DC !important;
+}
+
+/* Card hover effect */
+#editDriverModal .shadow-hover {
+    transition: all 0.3s ease;
+}
+
+#editDriverModal .shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Form controls styling */
+#editDriverModal .form-control,
+#editDriverModal .form-select {
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+#editDriverModal .form-control:focus,
+#editDriverModal .form-select:focus {
+    border-color: #ff5a5f;
+    box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.15);
+}
+
+#editDriverModal .form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+/* Card styling */
+#editDriverModal .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#editDriverModal .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#editDriverModal .card-body {
+    padding: 1.5rem;
+}
+
+#editDriverModal .card-title {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Colori per le classi personalizzate per le icone */
+#editDriverModal .bg-primary-soft {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+#editDriverModal .bg-info-soft {
+    background-color: rgba(54, 209, 220, 0.1);
+}
+
+#editDriverModal .bg-success-soft {
+    background-color: rgba(0, 214, 143, 0.1);
+}
+
+#editDriverModal .bg-warning-soft {
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+#editDriverModal .bg-danger-soft {
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+#editDriverModal .driver-text-success {
+    color: #00d68f !important;
+}
+
+#editDriverModal .driver-text-warning {
+    color: #FFA500 !important;
+}
+
+#editDriverModal .driver-text-danger {
+    color: #f44336 !important;
+}
+
+/* Form check customization */
+#editDriverModal .form-check-input:checked {
+    background-color: #ff5a5f;
+    border-color: #ff5a5f;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    #editDriverModal .custom-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    #editDriverModal .modal-footer {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    
+    #editDriverModal .modal-footer button {
+        width: 100%;
+    }
+}

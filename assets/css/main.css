@@ -1,0 +1,54 @@
+/**
+ * Lenny Food Delivery - Main CSS
+ * File principale che importa tutti i moduli CSS nell'ordine corretto
+ */
+
+/* Settings */
+@import url('1-settings/_variables.css');
+
+/* Base */
+@import url('2-base/_reset.css');
+@import url('2-base/_animations.css');
+
+/* Layout */
+@import url('3-layout/_layout.css');
+@import url('3-layout/_sidebar.css');
+@import url('3-layout/_header.css');
+
+/* Components */
+@import url('4-components/_buttons.css');
+@import url('4-components/_cards.css');
+@import url('4-components/_dropdowns.css');
+@import url('4-components/_maps.css');
+@import url('4-components/orders/_new-order.css');
+@import url('4-components/_notifications.css');
+@import url('4-components/orders/_order_details.css');
+@import url('4-components/restaurants/_restaurant_details.css');
+@import url('4-components/restaurants/_restaurant_selection.css');
+@import url('4-components/restaurants/_restaurant_wizard.css');
+@import url('4-components/restaurants/_restaurant_management.css');
+@import url('4-components/drivers/_driver_view.css');
+@import url('4-components/drivers/_driver_edit.css');
+@import url('4-components/drivers/_driver_new.css');
+@import url('4-components/_tables.css');
+@import url('4-components/_toast.css');
+@import url('4-components/drivers/_gestione_turni_driver.css');
+
+/* Pages */
+@import url('5-pages/_dashboard.css');
+@import url('5-pages/_restaurants.css');
+@import url('5-pages/orders/_refunds.css');
+@import url('5-pages/drivers/_turni.css');
+@import url('5-pages/orders/_orders.css');
+@import url('5-pages/drivers/_panoramica.css');
+/* Uncomment as you create più stili specifici per pagina */
+
+/* Utilities */
+@import url('6-utils/_spacing.css');
+@import url('6-utils/_display.css');
+
+/* Backward compatibility - maintaining existing imports for gradual migration */
+
+/* Nota: man mano che i file vengono migrati nella nuova architettura,
+   rimuovere gli import di questi file legacy e assicurarsi che
+   tutti gli stili siano correttamente organizzati nei nuovi moduli */

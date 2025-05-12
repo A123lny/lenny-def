@@ -1,0 +1,379 @@
+/* Wizard Orders Modal - Stili migliorati */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.modal-header.bg-gradient-primary .modal-title {
+    font-weight: 700;
+}
+
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.wizard-progress::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-grey-200);
+    z-index: 1;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-grey-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey-600);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-grey-600);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-icon {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 90, 95, 0.3);
+}
+
+.progress-step.active .step-label {
+    color: var(--color-primary);
+}
+
+.progress-step.completed .step-icon {
+    background: var(--color-success);
+    color: white;
+}
+
+/* Form steps animation */
+.order-step {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Step titles */
+.step-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-grey-200);
+    color: var(--color-grey-800);
+    position: relative;
+}
+
+.step-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--gradient-primary);
+}
+
+/* Cards for selected customer/restaurant */
+.customer-card, .restaurant-card {
+    background: linear-gradient(to right, rgba(255, 90, 95, 0.05), rgba(255, 138, 92, 0.05));
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 3px solid var(--color-primary);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.customer-card:hover, .restaurant-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.customer-avatar, .restaurant-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 15px;
+    box-shadow: 0 4px 8px rgba(255, 90, 95, 0.25);
+    flex-shrink: 0;
+}
+
+.customer-info, .restaurant-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--color-grey-600);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Empty cart style */
+.empty-cart {
+    padding: 20px;
+    text-align: center;
+}
+
+.empty-cart i {
+    font-size: 32px;
+    color: var(--color-grey-400);
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    color: var(--color-grey-500);
+    margin-bottom: 0;
+}
+
+/* Improved quantity controls */
+.quantity-group {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-grey-300);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: var(--color-grey-100);
+    color: var(--color-grey-700);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    font-size: 12px;
+}
+
+.quantity-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.quantity-input {
+    width: 36px;
+    text-align: center;
+    border: none;
+    padding: 0;
+    height: 28px;
+    font-weight: 600;
+    background: transparent;
+}
+
+.quantity-input:focus {
+    outline: none;
+}
+
+/* Order summary styling */
+.order-summary {
+    background-color: #f9fafb;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-grey-300);
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-row.total {
+    margin-top: 5px;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.summary-label {
+    color: var(--color-grey-700);
+}
+
+.summary-value {
+    font-weight: 600;
+}
+
+.summary-row.total .summary-value {
+    font-weight: 700;
+}
+
+/* Enhanced footer buttons */
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--color-grey-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wizard-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Enhanced remove button */
+.remove-item {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgba(255, 61, 113, 0.1);
+    color: var(--color-danger);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+    font-size: 12px;
+}
+
+.remove-item:hover {
+    background-color: var(--color-danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Make the table more attractive */
+#orderItemsTable {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#orderItemsTable thead th {
+    background-color: #f9fafb;
+    border-bottom: 1px solid var(--color-grey-300);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    color: var(--color-grey-700);
+    font-weight: 600;
+}
+
+#orderItemsTable tbody td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--color-grey-200);
+    vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .wizard-progress {
+        display: none; /* Hide steps on mobile */
+    }
+    
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+    }
+    
+    .wizard-buttons {
+        width: 100%;
+    }
+    
+    .order-summary {
+        padding: 10px;
+    }
+}
+
+/* Stili per il datepicker */
+.flatpickr-calendar {
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange, 
+.flatpickr-day.selected.inRange, 
+.flatpickr-day.startRange.inRange, 
+.flatpickr-day.endRange.inRange, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.startRange:focus, 
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)), 
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)), 
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+    box-shadow: -10px 0 0 var(--color-primary);
+}
+
+.flatpickr-day.today {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
