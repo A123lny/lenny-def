@@ -36,10 +36,11 @@
 
 /* Pages */
 @import url('5-pages/_dashboard.css');
+@import url('5-pages/_mobile_dashboard.css');
 @import url('5-pages/_restaurants.css');
+@import url('5-pages/orders/_orders.css');
 @import url('5-pages/orders/_refunds.css');
 @import url('5-pages/drivers/_turni.css');
-@import url('5-pages/orders/_orders.css');
 @import url('5-pages/drivers/_panoramica.css');
 /* Uncomment as you create più stili specifici per pagina */
 

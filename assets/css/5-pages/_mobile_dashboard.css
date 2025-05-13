@@ -1,0 +1,167 @@
+
+/**
+ * Lenny Food Delivery - Dashboard Mobile
+ * Stili specifici per la pagina dashboard su dispositivi mobili
+ */
+
+.mobile-dashboard {
+    padding: 0.5rem;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.mobile-dashboard .section-header {
+    padding: 0 0.25rem;
+}
+
+.mobile-dashboard .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-dashboard .section-subtitle {
+    font-size: 0.875rem;
+}
+
+.mobile-stats-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 0.25rem;
+}
+
+.mobile-dashboard .stat-card {
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    min-width: 100%;
+    margin-right: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.mobile-dashboard .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.mobile-dashboard .stat-change {
+    font-size: 0.75rem;
+}
+
+.mobile-dashboard .card {
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.mobile-dashboard .card-header {
+    padding: 0.875rem 1rem;
+}
+
+.mobile-dashboard .card-header h5 {
+    font-size: 1rem;
+}
+
+.mobile-orders-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.mobile-order-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-grey-200);
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-order-id {
+    font-weight: 600;
+    color: var(--color-grey-800);
+}
+
+.mobile-order-amount {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.mobile-order-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--color-grey-600);
+}
+
+.mobile-top-products .top-product-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-top-products .top-product-rank {
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+}
+
+.mobile-top-products .top-product-name {
+    font-size: 0.9rem;
+}
+
+.mobile-top-products .top-product-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+}
+
+/* Rimuovi spazio vuoto a destra */
+.mobile-dashboard .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100vw;
+}
+
+/* Stile per le notifiche mobile */
+.mobile-notification {
+    position: fixed;
+    bottom: 5rem;
+    left: 1rem;
+    right: 1rem;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: slide-up 0.3s ease-out forwards;
+}
+
+.mobile-notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-notification-content {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-notification-action {
+    font-size: 0.8rem;
+    color: var(--color-grey-500);
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

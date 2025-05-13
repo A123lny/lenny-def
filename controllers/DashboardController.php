@@ -20,13 +20,41 @@ class DashboardController {
         // I dati dettagliati sono già definiti nel file JavaScript dashboard.js
         // Quindi qui definiamo solo ciò che serve per il rendering iniziale della vista
         
+        // Controlla se l'utente sta usando un dispositivo mobile
+        $isMobile = $this->isMobileDevice();
+        
         // Definisce gli script JavaScript necessari per questa pagina
         $page_scripts = [
-            'assets/js/5-pages/dashboard.js'
+            $isMobile ? 'assets/js/5-pages/mobile_dashboard.js' : 'assets/js/5-pages/dashboard.js'
         ];
         
-        // Carica la vista
-        require_once 'views/dashboard/index.php';
+        // Controlla se l'utente sta usando un dispositivo mobile
+        $isMobile = $this->isMobileDevice();
+        
+        // Carica la vista appropriata
+        if ($isMobile) {
+            require_once 'views/dashboard/mobile.php';
+        } else {
+            require_once 'views/dashboard/index.php';
+        }
+    }
+    
+    /**
+     * Determina se l'utente sta utilizzando un dispositivo mobile
+     * @return bool
+     */
+    private function isMobileDevice() {
+        $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+        
+        return (
+            strpos($userAgent, 'Android') !== false
+            || strpos($userAgent, 'webOS') !== false
+            || strpos($userAgent, 'iPhone') !== false
+            || strpos($userAgent, 'iPad') !== false
+            || strpos($userAgent, 'iPod') !== false
+            || strpos($userAgent, 'BlackBerry') !== false
+            || strpos($userAgent, 'Windows Phone') !== false
+        );
     }
 }
 ?>
