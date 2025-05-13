@@ -26,6 +26,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Gestione avatar del profilo
+    const changeAvatarBtn = document.getElementById('changeAvatarBtn');
+    const avatarUpload = document.getElementById('avatarUpload');
+    const resetAvatarBtn = document.getElementById('resetAvatarBtn');
+    const profileAvatar = document.getElementById('profileAvatar');
+    
+    if (changeAvatarBtn && avatarUpload && resetAvatarBtn && profileAvatar) {
+        // Trigger del caricamento file quando si clicca sul pulsante della fotocamera
+        changeAvatarBtn.addEventListener('click', function() {
+            avatarUpload.click();
+        });
+        
+        // Gestione del caricamento file
+        avatarUpload.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                
+                // Verifica dimensione file (massimo 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    showToast('L\'immagine è troppo grande. Dimensione massima: 5MB', 'error');
+                    return;
+                }
+                
+                // Verifica tipo file
+                const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!validTypes.includes(file.type)) {
+                    showToast('Formato non supportato. Usa JPG, PNG o GIF', 'error');
+                    return;
+                }
+                
+                // Anteprima immagine
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileAvatar.src = e.target.result;
+                    showToast('Avatar aggiornato con successo', 'success');
+                    
+                    // In un'applicazione reale, qui si invierebbe il file al server
+                    // tramite una chiamata AJAX (FormData)
+                    console.log('Avatar aggiornato, file:', file.name);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Gestione reset avatar
+        resetAvatarBtn.addEventListener('click', function() {
+            // Reimpostazione dell'avatar predefinito
+            const defaultAvatarPath = asset('images/profilo.jpg');
+            profileAvatar.src = defaultAvatarPath;
+            avatarUpload.value = ''; // Reset input file
+            
+            showToast('Avatar ripristinato', 'success');
+            
+            // In un'applicazione reale, qui si invierebbe una richiesta al server
+            console.log('Avatar ripristinato al default');
+        });
+    }
+    
+    // Funzione helper per ottenere il percorso degli asset (simile alla funzione PHP asset())
+    function asset(path) {
+        // Rimuovi 'assets/' all'inizio se presente
+        path = path.replace(/^assets\//, '');
+        return '/assets/' + path;
+    }
+    
     // Gestione eliminazione profilo
     const confirmDeleteProfileBtn = document.getElementById('confirmDeleteProfile');
     if (confirmDeleteProfileBtn) {

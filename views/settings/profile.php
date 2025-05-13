@@ -16,7 +16,20 @@ require_once 'views/layout/header.php';
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 text-center mb-4">
-                            <img src="<?php echo asset('images/profilo.jpg'); ?>" alt="Immagine Profilo" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
+                            <div class="position-relative d-inline-block">
+                                <img id="profileAvatar" src="<?php echo asset('images/profilo.jpg'); ?>" alt="Immagine Profilo" class="img-fluid rounded-circle mb-3" style="max-width: 200px; width: 200px; height: 200px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 end-0 mb-3 me-3">
+                                    <button type="button" class="btn btn-sm btn-primary rounded-circle" id="changeAvatarBtn" title="Cambia avatar">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="file" id="avatarUpload" class="d-none" accept="image/jpeg, image/png, image/gif">
+                            <div class="mt-2 mb-3">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" id="resetAvatarBtn">
+                                    <i class="fas fa-undo me-1"></i>Ripristina avatar predefinito
+                                </button>
+                            </div>
                             <h5><?php echo isset($_SESSION['fullname']) ? $_SESSION['fullname'] : 'Utente'; ?></h5>
                             <p class="text-muted"><?php echo isset($_SESSION['role']) ? ucfirst($_SESSION['role']) : 'Ruolo non definito'; ?></p>
                         </div>

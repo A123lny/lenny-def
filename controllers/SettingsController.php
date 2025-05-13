@@ -32,6 +32,51 @@ class SettingsController {
         session_destroy();
         redirect('auth', 'login');
     }
+    
+    /**
+     * Gestisce l'upload dell'avatar del profilo
+     * Questo metodo verrebbe chiamato via AJAX nella versione completa
+     */
+    public function uploadAvatar() {
+        // In un'applicazione reale:
+        // 1. Verificare che il file sia stato caricato correttamente
+        // 2. Validare il tipo di file (solo immagini)
+        // 3. Ridimensionare l'immagine se necessario
+        // 4. Salvare l'immagine nella cartella uploads/avatars
+        // 5. Aggiornare il percorso dell'avatar nel database
+        // 6. Restituire una risposta JSON con l'esito dell'operazione
+        
+        // Esempio di risposta JSON (simulato)
+        $response = [
+            'success' => true,
+            'message' => 'Avatar aggiornato con successo',
+            'avatar_path' => '/assets/images/uploads/avatar_123.jpg'
+        ];
+        
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
+    
+    /**
+     * Resetta l'avatar al valore predefinito
+     * Questo metodo verrebbe chiamato via AJAX nella versione completa
+     */
+    public function resetAvatar() {
+        // In un'applicazione reale:
+        // 1. Reimpostare l'avatar predefinito nel database
+        // 2. Eliminare l'avatar personalizzato se esiste
+        // 3. Restituire una risposta JSON con l'esito dell'operazione
+        
+        // Esempio di risposta JSON (simulato)
+        $response = [
+            'success' => true,
+            'message' => 'Avatar ripristinato al valore predefinito',
+            'avatar_path' => '/assets/images/profilo.jpg'
+        ];
+        
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
 
     /**
      * Mostra la pagina delle impostazioni di sistema
