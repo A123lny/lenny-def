@@ -364,4 +364,4 @@
     });
 </script>
 
-<?php require_once 'views/layout/footer.php'; ?>
+<?php require_once 'views/layout/footer.php'; ?>er.php'; ?>
