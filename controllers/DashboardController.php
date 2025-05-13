@@ -1,42 +1,58 @@
+
 <?php
+/**
+ * Controller per la Dashboard principale
+ * Gestisce la visualizzazione della dashboard e delle statistiche
+ */
 class DashboardController {
+    /**
+     * Mostra la dashboard principale
+     */
     public function index() {
-        // Utilizziamo dati statici per coerenza con il resto dell'applicazione
+        // Controlla se il dispositivo è mobile
+        if ($this->isMobileDevice()) {
+            $this->mobile();
+            return;
+        }
         
-        // Dati statici per i widget della dashboard
+        // Dati di esempio per la dashboard
         $totalOrders = 684;
-        $totalRevenue = 15750;
+        $totalRevenue = 15742;
         $totalCustomers = 425;
+        $deliveryTime = 28;
+        $averageOrderValue = 23;
         
-        // Dati statici per gli ordini per stato
         $ordersByStatus = [
             ['status' => 'nuovo', 'count' => 12],
-            ['status' => 'in preparazione', 'count' => 8],
-            ['status' => 'in consegna', 'count' => 15],
-            ['status' => 'consegnato', 'count' => 635],
-            ['status' => 'annullato', 'count' => 14]
+            ['status' => 'in-preparazione', 'count' => 8],
+            ['status' => 'in-consegna', 'count' => 15],
+            ['status' => 'consegnato', 'count' => 645],
+            ['status' => 'annullato', 'count' => 4]
         ];
         
-        // I dati dettagliati sono già definiti nel file JavaScript dashboard.js
-        // Quindi qui definiamo solo ciò che serve per il rendering iniziale della vista
+        // Passa i dati alla vista
+        include 'views/dashboard/index.php';
+    }
+    
+    /**
+     * Mostra la versione mobile della dashboard
+     */
+    public function mobile() {
+        // Dati di esempio per la dashboard mobile
+        $totalOrders = 684;
+        $totalRevenue = 15742;
+        $totalCustomers = 425;
         
-        // Controlla se l'utente sta usando un dispositivo mobile
-        $isMobile = $this->isMobileDevice();
-        
-        // Definisce gli script JavaScript necessari per questa pagina
-        $page_scripts = [
-            $isMobile ? 'assets/js/5-pages/mobile_dashboard.js' : 'assets/js/5-pages/dashboard.js'
+        $ordersByStatus = [
+            ['status' => 'nuovo', 'count' => 12],
+            ['status' => 'in-preparazione', 'count' => 8],
+            ['status' => 'in-consegna', 'count' => 15],
+            ['status' => 'consegnato', 'count' => 645],
+            ['status' => 'annullato', 'count' => 4]
         ];
         
-        // Controlla se l'utente sta usando un dispositivo mobile
-        $isMobile = $this->isMobileDevice();
-        
-        // Carica la vista appropriata
-        if ($isMobile) {
-            require_once 'views/dashboard/mobile.php';
-        } else {
-            require_once 'views/dashboard/index.php';
-        }
+        // Passa i dati alla vista mobile
+        include 'views/dashboard/mobile.php';
     }
     
     /**
@@ -70,4 +86,3 @@ class DashboardController {
         return $isMobile;
     }
 }
-?>

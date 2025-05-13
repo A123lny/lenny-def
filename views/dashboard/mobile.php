@@ -4,6 +4,9 @@
 <div class="mobile-dashboard-container">
     <!-- Header mobile con saluto e notifiche -->
     <div class="mobile-header">
+        <div class="mobile-menu-trigger">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="mobile-greeting">
             <div class="mobile-greeting-icon">
                 <i class="fas fa-user-circle"></i>
@@ -20,6 +23,81 @@
             </a>
         </div>
     </div>
+
+    <!-- Menu laterale mobile -->
+    <div class="mobile-sidebar">
+        <div class="mobile-sidebar-header">
+            <img src="<?= asset('images/lennypng.png') ?>" alt="Lenny" class="mobile-logo">
+            <div class="mobile-sidebar-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="mobile-sidebar-content">
+            <ul class="mobile-menu">
+                <li class="mobile-menu-item active">
+                    <a href="<?= url('dashboard') ?>" class="mobile-menu-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="mobile-menu-item">
+                    <a href="<?= url('restaurants') ?>" class="mobile-menu-link">
+                        <i class="fas fa-store"></i>
+                        <span>Ristoranti</span>
+                    </a>
+                </li>
+                <li class="mobile-menu-item has-submenu">
+                    <a href="#" class="mobile-menu-link mobile-submenu-toggle">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Ordini</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="<?= url('orders', 'active') ?>" class="mobile-submenu-link hot">Ordini in corso</a></li>
+                        <li><a href="<?= url('orders') ?>" class="mobile-submenu-link">Tutti gli ordini</a></li>
+                        <li><a href="<?= url('orders', 'refunds') ?>" class="mobile-submenu-link">Rimborsi</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-menu-item has-submenu">
+                    <a href="#" class="mobile-menu-link mobile-submenu-toggle">
+                        <i class="fas fa-motorcycle"></i>
+                        <span>Driver</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="<?= url('drivers', 'panoramica') ?>" class="mobile-submenu-link">Panoramica</a></li>
+                        <li><a href="<?= url('drivers', 'turni') ?>" class="mobile-submenu-link">Turni</a></li>
+                        <li><a href="<?= url('drivers', 'mezzi') ?>" class="mobile-submenu-link">Mezzi</a></li>
+                        <li><a href="<?= url('drivers', 'pagamenti') ?>" class="mobile-submenu-link">Pagamenti</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-menu-item">
+                    <a href="<?= url('customers') ?>" class="mobile-menu-link">
+                        <i class="fas fa-users"></i>
+                        <span>Clienti</span>
+                    </a>
+                </li>
+                <li class="mobile-menu-item">
+                    <a href="<?= url('menu') ?>" class="mobile-menu-link">
+                        <i class="fas fa-utensils"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li class="mobile-menu-item">
+                    <a href="<?= url('settings') ?>" class="mobile-menu-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Impostazioni</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-sidebar-footer">
+            <span>Lenny Food Delivery v1.2</span>
+        </div>
+    </div>
+
+    <!-- Overlay quando il menu è aperto -->
+    <div class="mobile-overlay"></div>
 
     <!-- Statistiche principali mobile in layout verticale -->
     <div class="mobile-stats-grid">
@@ -88,7 +166,7 @@
     <div class="mobile-section">
         <div class="mobile-section-header">
             <h3>Ordini Recenti</h3>
-            <a href="index.php?controller=orders&action=index" class="mobile-view-all">
+            <a href="<?= url('orders') ?>" class="mobile-view-all">
                 Vedi tutti <i class="fas fa-chevron-right"></i>
             </a>
         </div>
@@ -131,21 +209,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Pulsante azione rapida -->
-    <div class="mobile-action-button">
-        <button class="floating-action-button">
-            <i class="fas fa-plus"></i>
-        </button>
-        <div class="floating-action-menu">
-            <a href="index.php?controller=orders&action=new"><i class="fas fa-shopping-cart"></i> Nuovo Ordine</a>
-            <a href="index.php?controller=customers&action=new"><i class="fas fa-user-plus"></i> Nuovo Cliente</a>
-            <a href="index.php?controller=drivers&action=new"><i class="fas fa-motorcycle"></i> Nuovo Driver</a>
-        </div>
-    </div>
 </div>
-
-<!-- Carica Chart.js prima di dashboard.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <?php require_once 'views/layout/footer.php'; ?>
