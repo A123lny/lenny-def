@@ -34,6 +34,26 @@ require_once 'views/layout/header.php';
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-shield-alt fa-3x mb-3 text-danger"></i>
+                                    <h5 class="card-title">Sicurezza</h5>
+                                    <p class="card-text">Gestisci le impostazioni di sicurezza e accesso</p>
+                                    <a href="<?php echo url('settings', 'security'); ?>" class="btn btn-danger">Impostazioni Sicurezza</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-users-cog fa-3x mb-3 text-info"></i>
+                                    <h5 class="card-title">Ruoli e Permessi</h5>
+                                    <p class="card-text">Configura ruoli utente e livelli di accesso</p>
+                                    <a href="<?php echo url('settings', 'roles'); ?>" class="btn btn-info">Gestione Ruoli</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

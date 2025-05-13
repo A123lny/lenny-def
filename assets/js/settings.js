@@ -47,6 +47,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Gestione form impostazioni sicurezza
+    const securitySettingsForm = document.getElementById('securitySettingsForm');
+    if (securitySettingsForm) {
+        securitySettingsForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulazione salvataggio
+            showToast('Impostazioni di sicurezza aggiornate con successo', 'success');
+            
+            // In un'applicazione reale, qui si invierebbe una richiesta AJAX al server
+            console.log('Impostazioni sicurezza aggiornate');
+        });
+        
+        // Gestione toggle restrizioni IP
+        const ipRestrictionsToggle = document.getElementById('ip_restrictions');
+        const allowedIpsTextarea = document.getElementById('allowed_ips');
+        
+        if (ipRestrictionsToggle && allowedIpsTextarea) {
+            ipRestrictionsToggle.addEventListener('change', function() {
+                allowedIpsTextarea.disabled = !this.checked;
+                if (!this.checked) {
+                    allowedIpsTextarea.value = '';
+                }
+            });
+            
+            // Inizializzazione stato
+            allowedIpsTextarea.disabled = !ipRestrictionsToggle.checked;
+        }
+    }
+    
+    // Gestione tabs ruoli e permessi
+    const rolesTab = document.getElementById('rolesTab');
+    if (rolesTab) {
+        // Gestione filtro ruoli nella tab permessi
+        const roleFilter = document.getElementById('roleFilter');
+        if (roleFilter) {
+            roleFilter.addEventListener('change', function() {
+                const selectedRole = this.value;
+                console.log('Filtro ruoli cambiato:', selectedRole);
+                // Implementare la logica di filtro
+            });
+        }
+        
+        // Gestione ricerca utenti nella tab assegnazioni
+        const userSearch = document.getElementById('userSearch');
+        if (userSearch) {
+            userSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                console.log('Ricerca utenti:', searchTerm);
+                // Implementare la logica di ricerca
+            });
+        }
+        
+        // Gestione pulsante aggiungi ruolo
+        const addRoleBtn = document.getElementById('addRoleBtn');
+        if (addRoleBtn) {
+            addRoleBtn.addEventListener('click', function() {
+                // Mostra modale o form per aggiungere un nuovo ruolo
+                alert('Funzionalità "Aggiungi Ruolo" in fase di sviluppo');
+            });
+        }
+    }
+    
     // Funzione per validare URL
     function isValidUrl(url) {
         try {
@@ -55,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (e) {
             return false;
         }
-    }
     }
     
     // Funzione per mostrare toast di notifica

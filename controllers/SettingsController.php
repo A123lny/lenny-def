@@ -24,4 +24,18 @@ class SettingsController {
     public function system() {
         require_once 'views/settings/system.php';
     }
+    
+    /**
+     * Mostra la pagina delle impostazioni di sicurezza
+     */
+    public function security() {
+        require_once 'views/settings/security.php';
+    }
+    
+    /**
+     * Mostra la pagina di gestione ruoli e permessi
+     */
+    public function roles() {
+        require_once 'views/settings/roles.php';
+    }
 }
