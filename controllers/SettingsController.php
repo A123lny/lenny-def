@@ -16,4 +16,3 @@ class SettingsController {
         require_once 'views/settings/system.php';
     }
 }
-?>
