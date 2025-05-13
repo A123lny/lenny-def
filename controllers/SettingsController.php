@@ -38,4 +38,18 @@ class SettingsController {
     public function roles() {
         require_once 'views/settings/roles.php';
     }
+    
+    /**
+     * Mostra la pagina di gestione utenti
+     */
+    public function users() {
+        require_once 'views/settings/users.php';
+    }
+    
+    /**
+     * Mostra la pagina delle integrazioni
+     */
+    public function integrations() {
+        require_once 'views/settings/integrations.php';
+    }
 }

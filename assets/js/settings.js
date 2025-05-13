@@ -110,6 +110,72 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Gestione pagina utenti
+    const searchUsersInput = document.getElementById('searchUsers');
+    if (searchUsersInput) {
+        searchUsersInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            console.log('Ricerca utenti:', searchTerm);
+            // Implementare la logica di ricerca utenti
+        });
+        
+        const filterRoleSelect = document.getElementById('filterRole');
+        if (filterRoleSelect) {
+            filterRoleSelect.addEventListener('change', function() {
+                const selectedRole = this.value;
+                console.log('Filtro per ruolo:', selectedRole);
+                // Implementare la logica di filtro per ruolo
+            });
+        }
+        
+        const addUserBtn = document.getElementById('addUserBtn');
+        if (addUserBtn) {
+            addUserBtn.addEventListener('click', function() {
+                // Mostra modale o form per aggiungere un nuovo utente
+                alert('Funzionalità "Aggiungi Utente" in fase di sviluppo');
+            });
+        }
+    }
+    
+    // Gestione pagina integrazioni
+    const integrationsTab = document.getElementById('integrationsTab');
+    if (integrationsTab) {
+        // Gestione toggle switches
+        const toggleSwitches = document.querySelectorAll('.form-check-input[type="checkbox"]');
+        toggleSwitches.forEach(function(toggle) {
+            toggle.addEventListener('change', function() {
+                const serviceName = this.id.replace('Toggle', '');
+                if (this.checked) {
+                    console.log(`Servizio ${serviceName} attivato`);
+                    showToast(`Servizio ${serviceName} attivato`, 'success');
+                } else {
+                    console.log(`Servizio ${serviceName} disattivato`);
+                    showToast(`Servizio ${serviceName} disattivato`, 'warning');
+                }
+                // In un'applicazione reale, qui si invierebbe una richiesta AJAX al server
+            });
+        });
+        
+        // Gestione pulsanti "mostra password"
+        const eyeButtons = document.querySelectorAll('.input-group .btn-outline-secondary');
+        eyeButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const inputField = this.closest('.input-group').querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (inputField.type === 'password') {
+                    inputField.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    inputField.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+    }
+    
     // Funzione per validare URL
     function isValidUrl(url) {
         try {

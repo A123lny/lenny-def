@@ -54,6 +54,26 @@ require_once 'views/layout/header.php';
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-user-friends fa-3x mb-3 text-success"></i>
+                                    <h5 class="card-title">Utenti</h5>
+                                    <p class="card-text">Gestisci gli utenti del sistema</p>
+                                    <a href="<?php echo url('settings', 'users'); ?>" class="btn btn-success">Gestione Utenti</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-plug fa-3x mb-3 text-purple"></i>
+                                    <h5 class="card-title">Integrazioni</h5>
+                                    <p class="card-text">Configura API e servizi esterni</p>
+                                    <a href="<?php echo url('settings', 'integrations'); ?>" class="btn btn-primary">Gestione Integrazioni</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
