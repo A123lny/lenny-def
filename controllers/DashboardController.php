@@ -44,17 +44,30 @@ class DashboardController {
      * @return bool
      */
     private function isMobileDevice() {
+        // Se specificato esplicitamente nell'URL, forza la visualizzazione mobile o desktop
+        if (isset($_GET['view'])) {
+            return $_GET['view'] === 'mobile';
+        }
+        
         $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
         
-        return (
+        // Controlla se il dispositivo è mobile
+        $isMobile = (
             strpos($userAgent, 'Android') !== false
             || strpos($userAgent, 'webOS') !== false
             || strpos($userAgent, 'iPhone') !== false
-            || strpos($userAgent, 'iPad') !== false
             || strpos($userAgent, 'iPod') !== false
             || strpos($userAgent, 'BlackBerry') !== false
             || strpos($userAgent, 'Windows Phone') !== false
+            || (strpos($userAgent, 'iPad') !== false && strpos($userAgent, 'Mobile') !== false)
         );
+        
+        // Controlla anche la larghezza dello schermo (se JavaScript è disponibile)
+        if (isset($_COOKIE['screen_width']) && $_COOKIE['screen_width'] < 768) {
+            $isMobile = true;
+        }
+        
+        return $isMobile;
     }
 }
 ?>

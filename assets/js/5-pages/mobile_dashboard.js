@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ottiene gli elementi del DOM
     const mobileOrdersList = document.querySelector('.mobile-orders-list');
     const mobileTopProducts = document.querySelector('.mobile-top-products');
+    const floatingActionButton = document.querySelector('.floating-action-button');
+    const floatingActionMenu = document.querySelector('.floating-action-menu');
     
     // Dati statici per gli ordini recenti
     const recentOrders = [
@@ -33,6 +35,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Renderizza i prodotti più venduti
     renderMobileTopProducts(topProducts);
+    
+    // Abilita il pulsante di azione flottante
+    if (floatingActionButton) {
+        floatingActionButton.addEventListener('click', function() {
+            if (floatingActionMenu) {
+                floatingActionMenu.classList.toggle('active');
+            }
+        });
+    }
+    
+    // Chiudi il menu quando si fa clic al di fuori
+    document.addEventListener('click', function(event) {
+        if (floatingActionMenu && floatingActionMenu.classList.contains('active') && 
+            !floatingActionButton.contains(event.target) && 
+            !floatingActionMenu.contains(event.target)) {
+            floatingActionMenu.classList.remove('active');
+        }
+    });
     
     // Simulazione di notifiche push per mobile
     setTimeout(() => {
