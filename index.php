@@ -30,7 +30,6 @@ require_once 'controllers/DriverController.php';
 require_once 'controllers/RestaurantController.php';
 require_once 'controllers/CRMController.php';
 require_once 'controllers/GameController.php';
-require_once 'controllers/SettingsController.php';
 
 // Inizializza il router
 $router = new Router();
@@ -183,16 +182,6 @@ switch ($controller) {
             $gameController->overview();
         } elseif ($action == 'statistics') {
             $gameController->statistics();
-        }
-        break;
-    case 'settings':
-        $settingsController = new SettingsController();
-        if ($action == 'index') {
-            $settingsController->index();
-        } elseif ($action == 'profile') {
-            $settingsController->profile();
-        } elseif ($action == 'system') {
-            $settingsController->system();
         }
         break;
     default:
