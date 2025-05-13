@@ -202,6 +202,13 @@
                     <i class="menu-icon fas fa-users"></i>
                     <span class="menu-text">Clienti</span>
                 </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="<?= url('settings') ?>" class="menu-link">
+                    <i class="menu-icon fas fa-cog"></i>
+                    <span class="menu-text">Impostazioni</span>
+                </a>
             </li>            
         </ul>
     </div>
