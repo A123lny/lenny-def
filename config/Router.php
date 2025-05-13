@@ -17,6 +17,9 @@ class Router {
             $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
             if (strtolower($host) === 'lenny1.test') {
                 $this->baseUrl = '/';
+            } else if (strpos($host, 'replit') !== false) {
+                // Su Replit, utilizziamo un baseUrl vuoto
+                $this->baseUrl = '/';
             } else {
                 $this->baseUrl = '/lenny1/';
             }
