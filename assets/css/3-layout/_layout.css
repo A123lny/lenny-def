@@ -49,8 +49,24 @@
 
 @media (max-width: 767.98px) {
     .page-container {
-        padding: 1rem;
+        padding: 1rem 0.5rem;
         margin-top: -0.5rem;
+        overflow-x: hidden;
+    }
+    
+    .container-fluid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .row {
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+    }
+    
+    .row > * {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
     }
 }
 

@@ -13,7 +13,7 @@
 </div>
 
 <!-- Statistiche principali -->
-<div class="stats-grid">
+<div class="stats-grid mobile-stats">
     <div class="stat-card stat-card-primary animate-float">
         <div class="stat-pattern"></div>
         <div class="stat-icon">

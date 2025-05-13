@@ -46,6 +46,7 @@
 /* Utilities */
 @import url('6-utils/_spacing.css');
 @import url('6-utils/_display.css');
+@import url('6-utils/_responsive.css');
 
 /* Backward compatibility - maintaining existing imports for gradual migration */
 
