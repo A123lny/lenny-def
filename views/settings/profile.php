@@ -48,9 +48,52 @@ require_once 'views/layout/header.php';
                                 </div>
                                 <button type="submit" class="btn btn-primary">Salva Modifiche</button>
                             </form>
+                            
+                            <hr class="my-4">
+                            
+                            <!-- Sezione Elimina Profilo -->
+                            <div class="mt-4">
+                                <h5 class="text-danger">Elimina Profilo</h5>
+                                <p class="text-muted">L'eliminazione del profilo è un'operazione irreversibile. Tutti i tuoi dati personali verranno rimossi dal sistema.</p>
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
+                                    <i class="fas fa-user-times me-2"></i>Elimina il mio profilo
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Conferma Eliminazione Profilo -->
+<div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">Conferma Eliminazione Profilo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Attenzione:</strong> Questa operazione non può essere annullata.
+                </div>
+                <p>Sei sicuro di voler eliminare permanentemente il tuo profilo? Questa azione comporterà:</p>
+                <ul>
+                    <li>Eliminazione di tutti i tuoi dati personali</li>
+                    <li>Perdita di accesso a tutti i servizi associati</li>
+                    <li>Rimozione di tutte le tue impostazioni e preferenze</li>
+                </ul>
+                <div class="mb-3">
+                    <label for="deleteConfirmPassword" class="form-label">Inserisci la tua password per confermare:</label>
+                    <input type="password" class="form-control" id="deleteConfirmPassword" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteProfile">Elimina definitivamente</button>
             </div>
         </div>
     </div>

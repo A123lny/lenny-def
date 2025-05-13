@@ -26,6 +26,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Gestione eliminazione profilo
+    const confirmDeleteProfileBtn = document.getElementById('confirmDeleteProfile');
+    if (confirmDeleteProfileBtn) {
+        confirmDeleteProfileBtn.addEventListener('click', function() {
+            const deleteConfirmPassword = document.getElementById('deleteConfirmPassword').value;
+            
+            if (!deleteConfirmPassword) {
+                showToast('Inserisci la password per confermare', 'error');
+                return;
+            }
+            
+            // Simulazione processo di eliminazione
+            const modal = bootstrap.Modal.getInstance(document.getElementById('deleteProfileModal'));
+            modal.hide();
+            
+            // Mostra indicatore di caricamento
+            showToast('Eliminazione profilo in corso...', 'info');
+            
+            // Simulazione richiesta al server (in un'app reale sarebbe una chiamata AJAX)
+            setTimeout(function() {
+                // Mostra messaggio di conferma
+                showToast('Profilo eliminato con successo', 'success');
+                
+                // Redirect alla pagina di login dopo un breve ritardo
+                setTimeout(function() {
+                    window.location.href = '/auth/login';
+                }, 2000);
+            }, 1500);
+            
+            console.log('Richiesta eliminazione profilo inviata');
+        });
+    }
+    
     // Gestione form impostazioni sistema
     const systemSettingsForm = document.getElementById('systemSettingsForm');
     if (systemSettingsForm) {
