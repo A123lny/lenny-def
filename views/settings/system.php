@@ -25,6 +25,11 @@ require_once 'views/layout/header.php';
                                 </div>
                                 
                                 <div class="mb-3">
+                                    <label for="siteUrl" class="form-label">URL Sito</label>
+                                    <input type="url" class="form-control" id="siteUrl" value="https://lenny.it">
+                                </div>
+                                
+                                <div class="mb-3">
                                     <label for="timezone" class="form-label">Fuso Orario</label>
                                     <select class="form-select" id="timezone">
                                         <option value="Europe/Rome" selected>Europe/Rome</option>

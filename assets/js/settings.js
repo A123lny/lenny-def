@@ -32,12 +32,30 @@ document.addEventListener('DOMContentLoaded', function() {
         systemSettingsForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validazione URL
+            const siteUrl = document.getElementById('siteUrl').value;
+            if (siteUrl && !isValidUrl(siteUrl)) {
+                showToast('URL del sito non valido', 'error');
+                return;
+            }
+            
             // Simulazione salvataggio
             showToast('Impostazioni di sistema aggiornate con successo', 'success');
             
             // In un'applicazione reale, qui si invierebbe una richiesta AJAX al server
             console.log('Impostazioni sistema aggiornate');
         });
+    }
+    
+    // Funzione per validare URL
+    function isValidUrl(url) {
+        try {
+            new URL(url);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
     }
     
     // Funzione per mostrare toast di notifica
