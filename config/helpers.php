@@ -34,7 +34,14 @@ function asset($path) {
         $path = substr($path, 7); // Rimuovi 'assets/'
     }
     
-    if (strtolower($host) === 'lenny1.test') {
+    // Controlla se siamo su Replit
+    if (getenv('REPL_SLUG')) {
+        // Su Replit, usiamo percorsi assoluti
+        $basePath = '/assets/';
+        $possiblePaths = [
+            $_SERVER['DOCUMENT_ROOT'] . '/assets/' . $path
+        ];
+    } else if (strtolower($host) === 'lenny1.test') {
         // Per lenny1.test, il percorso base è solo /assets/
         $basePath = '/assets/';
         

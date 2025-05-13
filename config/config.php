@@ -1,7 +1,7 @@
 <?php
 // Configurazione dell'applicazione
 define('APP_NAME', 'Lenny Food Delivery');
-define('APP_URL', 'http://lenny1.test');
+define('APP_URL', 'https://' . (getenv('REPL_SLUG') && getenv('REPL_OWNER') ? getenv('REPL_SLUG') . '.' . getenv('REPL_OWNER') . '.repl.co' : 'localhost:5000'));
 define('APP_VERSION', '1.0.0');
 
 // Configurazione del database
