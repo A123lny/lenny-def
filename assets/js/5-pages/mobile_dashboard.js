@@ -10,34 +10,52 @@ document.addEventListener('DOMContentLoaded', function() {
     loadMobileOrders();
     loadTopProducts();
     setupNotifications();
+    console.log("Mobile dashboard initialized");
 });
 
 /**
  * Inizializza il menu laterale mobile
  */
 function initMobileSidebar() {
+    console.log("Initializing mobile sidebar");
     const menuTrigger = document.querySelector('.mobile-menu-trigger');
     const sidebar = document.querySelector('.mobile-sidebar');
     const closeBtn = document.querySelector('.mobile-sidebar-close');
     const overlay = document.querySelector('.mobile-overlay');
     const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
     
+    console.log("Menu trigger:", menuTrigger);
+    console.log("Sidebar:", sidebar);
+    console.log("Close button:", closeBtn);
+    console.log("Overlay:", overlay);
+    
     // Apertura menu
     if (menuTrigger) {
-        menuTrigger.addEventListener('click', function() {
-            sidebar.classList.add('open');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        menuTrigger.addEventListener('click', function(e) {
+            console.log("Menu trigger clicked");
+            e.preventDefault();
+            e.stopPropagation();
+            if (sidebar) {
+                sidebar.classList.add('open');
+                if (overlay) overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         });
     }
     
     // Chiusura menu
     if (closeBtn) {
-        closeBtn.addEventListener('click', closeMenu);
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMenu();
+        });
     }
     
     if (overlay) {
-        overlay.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMenu();
+        });
     }
     
     // Toggle sottomenu
@@ -45,6 +63,7 @@ function initMobileSidebar() {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             const menuItem = this.closest('.mobile-menu-item');
+            console.log("Submenu toggle clicked", menuItem);
             
             // Chiudi tutti gli altri sottomenu
             document.querySelectorAll('.mobile-menu-item.open').forEach(item => {
@@ -59,8 +78,9 @@ function initMobileSidebar() {
     });
     
     function closeMenu() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('active');
+        console.log("Closing mobile menu");
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 }

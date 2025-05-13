@@ -1,5 +1,17 @@
 
-<?php require_once 'views/layout/header.php'; ?>
+<?php 
+// Aggiungiamo una meta viewport per garantire la corretta visualizzazione su mobile
+if (!headers_sent()) {
+    header('X-UA-Compatible: IE=edge,chrome=1');
+}
+require_once 'views/layout/header.php'; 
+?>
+<script>
+    // Script per diagnosticare eventuali problemi con il menù mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Mobile dashboard view loaded');
+    });
+</script>
 
 <div class="mobile-dashboard-container">
     <!-- Header mobile con saluto e notifiche -->
@@ -83,6 +95,29 @@
                         <span>Menu</span>
                     </a>
                 </li>
+                <li class="mobile-menu-item has-submenu">
+                    <a href="#" class="mobile-menu-link mobile-submenu-toggle">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Utenti</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="<?= url('settings', 'users') ?>" class="mobile-submenu-link">Gestione Utenti</a></li>
+                        <li><a href="<?= url('settings', 'roles') ?>" class="mobile-submenu-link">Ruoli e Permessi</a></li>
+                        <li><a href="<?= url('settings', 'profile') ?>" class="mobile-submenu-link">Profilo Personale</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-menu-item has-submenu">
+                    <a href="#" class="mobile-menu-link mobile-submenu-toggle">
+                        <i class="fas fa-plug"></i>
+                        <span>Integrazioni</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="<?= url('settings', 'integrations') ?>" class="mobile-submenu-link">API & Servizi</a></li>
+                        <li><a href="<?= url('settings', 'system') ?>" class="mobile-submenu-link">Configurazione Sistema</a></li>
+                    </ul>
+                </li>
                 <li class="mobile-menu-item">
                     <a href="<?= url('settings') ?>" class="mobile-menu-link">
                         <i class="fas fa-cog"></i>
@@ -97,7 +132,7 @@
     </div>
 
     <!-- Overlay quando il menu è aperto -->
-    <div class="mobile-overlay"></div>
+    <div class="mobile-overlay" style="z-index: 999;"></div>
 
     <!-- Statistiche principali mobile in layout verticale -->
     <div class="mobile-stats-grid">
