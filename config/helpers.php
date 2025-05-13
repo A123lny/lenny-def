@@ -80,8 +80,24 @@ function asset($path) {
  * @param array $params Parametri aggiuntivi (opzionale)
  */
 function redirect($controller, $action = 'index', $params = []) {
-    global $router;
-    $url = $router->generateUrl($controller, $action, $params);
-    header("Location: $url");
-    exit;
+    // Controlla se l'output è già stato inviato
+    if (headers_sent($filename, $linenum)) {
+        // Se gli header sono già stati inviati, utilizziamo JavaScript per reindirizzare
+        echo "<script>window.location.href='";
+        global $router;
+        echo $router->generateUrl($controller, $action, $params);
+        echo "';</script>";
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url=';
+        echo $router->generateUrl($controller, $action, $params);
+        echo '">';
+        echo '</noscript>';
+        exit;
+    } else {
+        // Se gli header non sono stati inviati, usiamo il reindirizzamento HTTP normale
+        global $router;
+        $url = $router->generateUrl($controller, $action, $params);
+        header("Location: $url");
+        exit;
+    }
 }
