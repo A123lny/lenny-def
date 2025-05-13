@@ -2,4 +2,4 @@
 
 <!-- La vista verrà implementata successivamente -->
 
-<?php require_once 'views/layout/footer.php'; ?>
+<?php require_once 'views/layout/footer.php'; ?>>
