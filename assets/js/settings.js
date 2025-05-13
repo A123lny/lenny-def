@@ -1,6 +1,6 @@
 
 /**
- * JavaScript per la gestione delle impostazioni
+ * settings.js - Gestione delle funzionalità delle pagine di impostazioni
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Gestione form profilo
@@ -8,8 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (profileForm) {
         profileForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validazione password
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (newPassword && newPassword !== confirmPassword) {
+                showToast('Le password non corrispondono', 'error');
+                return;
+            }
+            
             // Simulazione salvataggio
-            showToast('Modifiche salvate con successo!', 'success');
+            showToast('Profilo aggiornato con successo', 'success');
+            
+            // In un'applicazione reale, qui si invierebbe una richiesta AJAX al server
+            console.log('Profilo aggiornato');
         });
     }
     
@@ -18,18 +31,41 @@ document.addEventListener('DOMContentLoaded', function() {
     if (systemSettingsForm) {
         systemSettingsForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
             // Simulazione salvataggio
-            showToast('Impostazioni di sistema aggiornate!', 'success');
+            showToast('Impostazioni di sistema aggiornate con successo', 'success');
+            
+            // In un'applicazione reale, qui si invierebbe una richiesta AJAX al server
+            console.log('Impostazioni sistema aggiornate');
         });
     }
     
-    // Funzione per mostrare i toast
+    // Funzione per mostrare toast di notifica
     function showToast(message, type = 'info') {
-        // Cerca una funzione di toast esistente o crea un alert semplice
+        // Verifica se esiste già una funzione globale per le notifiche
         if (typeof window.showToast === 'function') {
             window.showToast(message, type);
-        } else {
-            alert(message);
+            return;
         }
+        
+        // Implementazione base di un toast se non esiste già
+        const toast = document.createElement('div');
+        toast.className = `toast-notification toast-${type}`;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        // Animazione
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+        
+        // Rimuovi dopo 3 secondi
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
     }
 });
